@@ -14,8 +14,9 @@ Route::get('/kegiatan', [HomeController::class, 'activities'])->name('activities
 Route::get('/bergabung', [HomeController::class, 'join'])->name('join');
 Route::get('/kontak', [HomeController::class, 'contact'])->name('contact');
 
-// Additional routes for future development
-// Route::get('/berita', [NewsController::class, 'index'])->name('news');
-// Route::get('/berita/{slug}', [NewsController::class, 'show'])->name('news.show');
-// Route::get('/galeri', [GalleryController::class, 'index'])->name('gallery');
-// Route::post('/pendaftaran', [RegistrationController::class, 'store'])->name('registration.store');
+// Pendaftaran routes
+Route::post('/bergabung', [HomeController::class, 'storePendaftaran'])->name('join.store');
+Route::get('/bergabung/sukses/{id}', [HomeController::class, 'joinSuccess'])->name('join.success');
+
+
+

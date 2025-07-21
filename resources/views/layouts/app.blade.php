@@ -280,7 +280,7 @@
                 <span class="fw-bold text-white fs-3">Cakra Manggala</span>
                 
                 <!-- Garis horizontal pendek -->
-                <div style="width: 180px; height: 2px; background-color: black; margin: 4px 0;"></div>
+                <div style="width: 160px; height: 2px; background-color: black; margin: 2px 0;"></div>
                 <small class="fst-italic text-light">Tabah, tangguh, terampil</small>
             </div>
         </div>
@@ -301,9 +301,6 @@
         </div>
     </div>
 </nav>
-
-
-
 
     <!-- Main Content -->
     <main>
