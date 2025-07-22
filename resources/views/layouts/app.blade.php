@@ -30,6 +30,7 @@
             background: rgba(46, 125, 50, 0.95) !important;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
+            padding: 1rem 0;
         }
         
         .navbar.scrolled {
@@ -46,6 +47,7 @@
             font-weight: 500;
             margin: 0 0.5rem;
             transition: all 0.3s ease;
+            padding: 0.5rem 1rem !important;
         }
         
         .navbar-nav .nav-link:hover {
@@ -53,15 +55,85 @@
             transform: translateY(-2px);
         }
 
+        /* Logo Section Responsive */
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-section img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-weight: bold;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .logo-divider {
+            width: 160px;
+            height: 2px;
+            background-color: black;
+            margin: 2px 0;
+        }
+
+        .logo-subtitle {
+            font-style: italic;
+            color: #e8f5e8;
+            font-size: 0.9rem;
+        }
+
+        /* Navbar Toggler Custom */
+        .navbar-toggler {
+            border: 2px solid white;
+            padding: 4px 8px;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Login Button */
+        .btn-login {
+            background-color: white;
+            color: var(--primary-color);
+            border: 2px solid white;
+            border-radius: 25px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-login:hover {
+            background-color: transparent;
+            color: white;
+            transform: translateY(-2px);
+        }
+
         /* Hero Section */
         .hero-section {
-        position: relative;
-        height: 80vh;
-        display: flex;
-        align-items: center;
-        color: white;
-        overflow: hidden;
-        z-index: 1;
+            position: relative;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+            z-index: 1;
         }
 
         .hero-section::before {
@@ -82,7 +154,7 @@
             top: 0; left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6); /* lapisan hitam transparan */
+            background: rgba(0, 0, 0, 0.6);
             z-index: -1;
         }
 
@@ -233,6 +305,38 @@
         }
         
         /* Mobile Responsive */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: rgba(46, 125, 50, 0.98);
+                border-radius: 15px;
+                margin-top: 1rem;
+                padding: 1.5rem;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+
+            .navbar-nav .nav-item {
+                margin: 0.25rem 0;
+            }
+
+            .navbar-nav .nav-link {
+                padding: 0.75rem 1rem !important;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            }
+
+            .navbar-nav .nav-link:hover {
+                background: rgba(255, 255, 255, 0.1);
+                transform: translateX(5px);
+            }
+
+            .btn-login {
+                margin-top: 1rem;
+                width: 100%;
+                justify-content: center;
+                padding: 0.75rem 1.5rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
@@ -245,11 +349,60 @@
             .stat-number {
                 font-size: 2rem;
             }
+
+            .logo-section img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .logo-title {
+                font-size: 1.2rem;
+            }
+
+            .logo-divider {
+                width: 120px;
+            }
+
+            .logo-subtitle {
+                font-size: 0.8rem;
+            }
+
+            /* Hero section height adjustment */
+            .hero-section {
+                height: 70vh;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 0.75rem 0;
+            }
+
+            .hero-section {
+                height: 60vh;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
             
-            .navbar-nav {
-                background: rgba(46, 125, 50, 0.95);
-                border-radius: 10px;
-                margin-top: 1rem;
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .logo-title {
+                font-size: 1.1rem;
+            }
+
+            .logo-divider {
+                width: 100px;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .stat-item {
                 padding: 1rem;
             }
         }
@@ -265,42 +418,71 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Ensure proper z-index for navbar */
+        .navbar {
+            position: relative;
+            z-index: 1030;
+        }
+
+        /* Fix for small screens */
+        @media (max-width: 350px) {
+            .container {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .logo-text {
+                margin-left: 0.5rem;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success py-4">
-    <div class="container d-flex justify-content-between align-items-center">
-        
-        <!-- Kiri: Logo + Judul + Garis + Jargon -->
-        <div class="d-flex align-items-center">
-            <img src="{{ asset('image/logo.png') }}" alt="Logo" style="width: 70px; height: 70px;" class="me-3">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <img src="{{ asset('image/logo.png') }}" alt="Logo" class="me-2 me-md-3">
+                <div class="logo-text">
+                    <span class="logo-title">Cakra Manggala</span>
+                    <div class="logo-divider"></div>
+                    <small class="logo-subtitle">Tabah, tangguh, terampil</small>
+                </div>
+            </div>
 
-            <div class="d-flex flex-column">
-                <span class="fw-bold text-white fs-3">Cakra Manggala</span>
-                
-                <!-- Garis horizontal pendek -->
-                <div style="width: 160px; height: 2px; background-color: black; margin: 2px 0;"></div>
-                <small class="fst-italic text-light">Tabah, tangguh, terampil</small>
+            <!-- Navbar Toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{{ route('home') }}">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{{ route('about') }}">Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{{ route('activities') }}">Galeri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{{ route('contact') }}">Kontak dan Sosial Media</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('login') }}" class="btn-login">
+                            <i class="bi bi-box-arrow-in-right"></i>
+                            <span>Masuk</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-
-        <!-- Kanan: Menu -->
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link text-light" href="{{ route('home') }}">Beranda</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="{{ route('about') }}">Profil</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="{{ route('activities') }}">Galeri</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="{{ route('contact') }}">Kontak dan Sosial Media</a></li>
-                <li class="nav-item ms-3">
-                    <a href="{{ route('login') }}" class="btn btn-light rounded-pill px-4 py-2">
-                        <i class="bi bi-box-arrow-in-right"></i> Masuk
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+    </nav>
 
     <!-- Main Content -->
     <main>
@@ -311,31 +493,31 @@
     <footer class="footer">
         <div class="container">
             <div class="row footer-content">
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4 mb-md-0">
                     <h5 class="footer-title">UKM Mapala Cakra Manggala</h5>
-                    <p>Mahasiswa Pecinta Alam tidak akan memelonco Anda, melainkan akan membimbing Anda. Alam lah yang akan mendidik Anda setiap saat, dalam setiap kondisi, setiap medan, dan setiap situasi. Bila semua itu mampu Anda hadapi, menjelmalah anda menjadi seorang putra putri alam yang TABAH,TANGGUH, TERAMPIL.”</p>
+                    <p>Mahasiswa Pecinta Alam tidak akan memelonco Anda, melainkan akan membimbing Anda. Alam lah yang akan mendidik Anda setiap saat, dalam setiap kondisi, setiap medan, dan setiap situasi. Bila semua itu mampu Anda hadapi, menjelmalah anda menjadi seorang putra putri alam yang TABAH,TANGGUH, TERAMPIL."</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4 mb-md-0">
                     <h5 class="footer-title">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="{{ route('about') }}" class="text-light text-decoration-none">Tentang Kami</a></li>
-                        <li><a href="{{ route('activities') }}" class="text-light text-decoration-none">Kegiatan</a></li>
-                        <li><a href="{{ route('join') }}" class="text-light text-decoration-none">Bergabung</a></li>
-                        <li><a href="{{ route('contact') }}" class="text-light text-decoration-none">Kontak</a></li>
+                        <li class="mb-2"><a href="{{ route('about') }}" class="text-light text-decoration-none">Tentang Kami</a></li>
+                        <li class="mb-2"><a href="{{ route('activities') }}" class="text-light text-decoration-none">Kegiatan</a></li>
+                        <li class="mb-2"><a href="{{ route('join') }}" class="text-light text-decoration-none">Bergabung</a></li>
+                        <li class="mb-2"><a href="{{ route('contact') }}" class="text-light text-decoration-none">Kontak</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
                     <h5 class="footer-title">Ikuti Sosial Media Cakra Manggala</h5>
                     <div class="social-links">
-                        <a href="#"><i class="bi bi-instagram"></i></a>
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="#"><i class="bi bi-youtube"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
                     </div>
                 </div>
             </div>
             <hr>
             <div class="text-center">
-                <p>&copy; {{ date('Y') }}Cakra Manggala. All rights reserved.</p>
+                <p>&copy; {{ date('Y') }} Cakra Manggala. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -390,6 +572,17 @@
         
         document.querySelectorAll('.stat-number').forEach(counter => {
             observer.observe(counter);
+        });
+
+        // Close navbar on link click (mobile)
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                    toggle: false
+                });
+                bsCollapse.hide();
+            });
         });
     </script>
     
