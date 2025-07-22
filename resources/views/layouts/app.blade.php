@@ -293,7 +293,7 @@
                 <li class="nav-item"><a class="nav-link text-light" href="{{ route('activities') }}">Galeri</a></li>
                 <li class="nav-item"><a class="nav-link text-light" href="{{ route('contact') }}">Kontak dan Sosial Media</a></li>
                 <li class="nav-item ms-3">
-                    <a href="" class="btn btn-light rounded-pill px-4 py-2">
+                    <a href="{{ route('login') }}" class="btn btn-light rounded-pill px-4 py-2">
                         <i class="bi bi-box-arrow-in-right"></i> Masuk
                     </a>
                 </li>
