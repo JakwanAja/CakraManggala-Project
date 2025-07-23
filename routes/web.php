@@ -4,6 +4,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StrukturController;
 use Illuminate\Support\Facades\Route;
 
 // Homepage routes
@@ -15,6 +16,7 @@ Route::get('/tentang-kami', [HomeController::class, 'about'])->name('about');
 Route::get('/kegiatan', [HomeController::class, 'activities'])->name('activities');
 Route::get('/bergabung', [HomeController::class, 'join'])->name('join');
 Route::get('/kontak', [HomeController::class, 'contact'])->name('contact');
+Route::get('/struktur-kepengurusan', [StrukturController::class, 'index'])->name('struktur-kepengurusan');
 
 // Pendaftaran routes
 Route::post('/bergabung', [HomeController::class, 'storePendaftaran'])->name('join.store');

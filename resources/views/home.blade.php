@@ -117,7 +117,7 @@
         </div>
     </section>
 
-    <!-- Quick Links Section -->
+    <!-- Quick Links Section 
     <section class="quick-links">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">
@@ -183,7 +183,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Call to Action -->
     <section class="cta-section">
@@ -368,23 +368,23 @@
         
         /* CTA Section */
         .cta-section {
-            padding: 4rem 0;
+            padding: 3rem 0;
             background: var(--primary-color);
         }
         
         .cta-title {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
         }
         
         .cta-subtitle {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             margin-bottom: 2rem;
             opacity: 0.9;
         }
         
         .cta-button {
-            font-size: 1.1rem;
+            font-size: 1rem;
             padding: 1rem 2rem;
         }
         
@@ -452,11 +452,11 @@
             }
             
             .cta-section {
-                padding: 3rem 0;
+                padding: 2rem 0;
             }
             
             .cta-title {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
         }
         

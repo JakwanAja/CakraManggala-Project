@@ -30,7 +30,7 @@
             </div>
             <div class="col-lg-6" data-aos="fade-left">
                 <h2 class="mb-4" style="color: var(--primary-color);">
-                    <i class="bi bi-tree me-2"></i>Awal Berdiri
+                    <i class="bi bi-tree me-2"></i>Sejarah Singkat
                 </h2>
                 <p class="lead mb-4">
                     Kegiatan kepencintaalaman di Politeknik Negeri Madiun tumbuh dari semangat mahasiswa yang mencintai alam dan ingin menyalurkan kegemarannya melalui aktivitas positif. Melihat belum adanya wadah resmi, sekelompok mahasiswa berinisiatif mendirikan sebuah organisasi pada 26 Juli 2013 dengan nama GEMAPALA (Generasi Mahasiswa Pecinta Alam). Organisasi ini menjadi tempat berkumpul, belajar, dan bergerak bersama dalam melestarikan alam, membentuk karakter, serta mempererat solidaritas antaranggota melalui kegiatan di alam bebas. Pada 19 Oktober 2014, GEMAPALA resmi berganti nama menjadi CAKRA MANGGALA, yang membawa semangat baru dalam menjalankan misi kepencintaalaman.
@@ -92,7 +92,66 @@
     </div>
 </section>
 
-    <!-- Nilai-nilai Organisasi 
+<!-- Divisi Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5" style="color: var(--primary-color);" data-aos="fade-up">
+            <i class="bi bi-diagram-3 me-2"></i>Divisi Kami
+        </h2>
+        <div class="row g-4">
+            <div class="col-lg-6" data-aos="fade-up">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="text-center mb-4">
+                            <div class="bg-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                <i class="bi bi-tree-fill text-white fs-2"></i>
+                            </div>
+                            <h4 style="color: var(--primary-color);">Gunung Hutan (GH)</h4>
+                        </div>
+                        <p class="text-center mb-4">
+                            Divisi yang mengkhususkan diri dalam kegiatan pendakian gunung, penjelajahan hutan, dan aktivitas alam bebas. Anggota divisi ini dilatih untuk memiliki kemampuan navigasi, survival, dan pemahaman mendalam tentang ekosistem pegunungan dan hutan.
+                        </p>
+                        <div class="text-center">
+                            <small class="text-muted">
+                                <i class="bi bi-mountain me-1"></i> Pendakian Gunung
+                                <span class="mx-2">|</span>
+                                <i class="bi bi-compass me-1"></i> Navigasi Alam
+                                <span class="mx-2">|</span>
+                                <i class="bi bi-flower1 me-1"></i> Konservasi
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="text-center mb-4">
+                            <div class="bg-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                <i class="bi bi-activity text-white fs-2"></i>
+                            </div>
+                            <h4 style="color: var(--primary-color);">Rock Climbing (RC)</h4>
+                        </div>
+                        <p class="text-center mb-4">
+                            Divisi yang fokus pada kegiatan panjat tebing dan olahraga vertikal. Anggota divisi ini dilatih dalam teknik memanjat, penggunaan peralatan keselamatan, dan pemahaman tentang geologi batuan serta manajemen risiko dalam aktivitas vertikal.
+                        </p>
+                        <div class="text-center">
+                            <small class="text-muted">
+                                <i class="bi bi-shield-check me-1"></i> Teknik Keselamatan
+                                <span class="mx-2">|</span>
+                                <i class="bi bi-gear me-1"></i> Peralatan Khusus
+                                <span class="mx-2">|</span>
+                                <i class="bi bi-trophy me-1"></i> Kompetisi
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Nilai-nilai Organisasi -->
     <section class="py-5">
         <div class="container">
             <h2 class="text-center mb-5" style="color: var(--primary-color);" data-aos="fade-up">
@@ -137,113 +196,34 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section> 
 
-    <!-- Struktur Pengurus -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5" style="color: var(--primary-color);" data-aos="fade-up">
-                <i class="bi bi-diagram-3 me-2"></i>Struktur Kepengurusan 2024/2025
-            </h2>
-            
-            <!-- Ketua & Wakil -->
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
-                    <div class="card border-0 shadow-sm text-center">
-                        <div class="card-body p-4">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
-                                 class="rounded-circle mb-3" width="120" height="120" style="object-fit: cover;" alt="Ketua">
-                            <h5 class="mb-1">Satria Dwi Saputra</h5>
-                            <p class="text-success fw-bold">Ketua Umum</p>
-                            <p class="text-muted small">Teknik Listrik '23</p>
-                            <p class="small">"Tidak perlu kata-kata yang penting bukti nyata"</p>
-                        </div>
+    <!-- Quote Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="text-center" data-aos="fade-up">
+                    <div class="mb-4">
+                        <i class="bi bi-quote fs-1" style="color: var(--primary-color);"></i>
                     </div>
-                </div>
-            </div>
-
-            <!-- Pengurus Inti -->
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6" data-aos="fade-up">
-                    <div class="card border-0 shadow-sm text-center h-100">
-                        <div class="card-body p-3">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
-                                 class="rounded-circle mb-3" width="80" height="80" style="object-fit: cover;" alt="Sekretaris">
-                            <h6 class="mb-1">Naufal Rohmanul Muhaimin</h6>
-                            <p class="text-success fw-bold small">Sekretaris</p>
-                            <p class="text-muted small">Teknik Komputer Kontrol '23</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card border-0 shadow-sm text-center h-100">
-                        <div class="card-body p-3">
-                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
-                                 class="rounded-circle mb-3" width="80" height="80" style="object-fit: cover;" alt="Bendahara">
-                            <h6 class="mb-1">Alvina Qorik Cahyani</h6>
-                            <p class="text-success fw-bold small">Bendahara</p>
-                            <p class="text-muted small">Akuntansi '23</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card border-0 shadow-sm text-center h-100">
-                        <div class="card-body p-3">
-                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
-                                 class="rounded-circle mb-3" width="80" height="80" style="object-fit: cover;" alt="Koordinator">
-                            <h6 class="mb-1">Muhammad Dzakwan Alfaris</h6>
-                            <p class="text-success fw-bold small">Kepala Bidang Publikasi dan Dokumentasi</p>
-                            <p class="text-muted small">Teknologi Rekayasa Perangkat Lunak '23</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card border-0 shadow-sm text-center h-100">
-                        <div class="card-body p-3">
-                            <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
-                                 class="rounded-circle mb-3" width="80" height="80" style="object-fit: cover;" alt="Humas">
-                            <h6 class="mb-1">Maulaya Ilyasa Jayamagusta</h6>
-                            <p class="text-success fw-bold small">Kepala Bidang Kaderisasi, Penelitian dan PSDM</p>
-                            <p class="text-muted small">Perkeretaapian '23</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card border-0 shadow-sm text-center h-100">
-                        <div class="card-body p-3">
-                            <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
-                                 class="rounded-circle mb-3" width="80" height="80" style="object-fit: cover;" alt="Humas">
-                            <h6 class="mb-1">Erzal Abilla Saputra</h6>
-                            <p class="text-success fw-bold small">Kepala Bidang Lingkungan dan Pengabdian Masyarakat</p>
-                            <p class="text-muted small">Teknologi Informasi '23</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card border-0 shadow-sm text-center h-100">
-                        <div class="card-body p-3">
-                            <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
-                                 class="rounded-circle mb-3" width="80" height="80" style="object-fit: cover;" alt="Humas">
-                            <h6 class="mb-1">Rindu Resty Ananda Faradilla</h6>
-                            <p class="text-success fw-bold small">Anggota Bidang Lingkungan dan Pengabdian Masyarakat</p>
-                            <p class="text-muted small">Akuntansi Sektor Publik '22</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card border-0 shadow-sm text-center h-100">
-                        <div class="card-body p-3">
-                            <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
-                                 class="rounded-circle mb-3" width="80" height="80" style="object-fit: cover;" alt="Humas">
-                            <h6 class="mb-1">Bidang Lingkungan dan Pengabdian Masyarakat</h6>
-                            <p class="text-success fw-bold small">Kepala Bidang Logistik</p>
-                            <p class="text-muted small">Teknik Rekayasa Otomotif '22</p>
+                    <blockquote class="blockquote">
+                        <p class="fs-4 fw-light lh-lg mb-4" style="color: #2c3e50; font-style: italic;">
+                            "Mahasiswa Pecinta Alam tidak akan memelonco Anda, melainkan akan membimbing Anda. Alam lah yang akan mendidik Anda setiap saat, dalam setiap kondisi, setiap medan, dan setiap situasi. Bila semua itu mampu Anda hadapi, menjelmalah anda menjadi seorang putra putri alam yang <strong>TABAH, TANGGUH, TERAMPIL</strong>."
+                        </p>
+                    </blockquote>
+                    <div class="mt-4">
+                        <div class="d-inline-flex align-items-center">
+                            <div class="bg-success" style="width: 50px; height: 2px;"></div>
+                            <i class="bi bi-tree mx-3 fs-4" style="color: var(--primary-color);"></i>
+                            <div class="bg-success" style="width: 50px; height: 2px;"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Call to Action -->
     <section class="py-5" style="background: var(--primary-color);">

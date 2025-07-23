@@ -439,7 +439,7 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+   <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container">
             <!-- Logo Section -->
@@ -464,14 +464,27 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" href="{{ route('home') }}">Beranda</a>
                     </li>
+                    <!--<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light" href="#" id="profilDropdown" role="button" 
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                            Profil
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="profilDropdown">
+                            <li><a class="dropdown-item" href="{{ route('about') }}">Tentang Kami</a></li>
+                            <li><a class="dropdown-item" href="{{ route('struktur-kepengurusan') }}">Struktur Kepengurusan</a></li>
+                        </ul>
+                    </li>-->
                     <li class="nav-item">
                         <a class="nav-link text-light" href="{{ route('about') }}">Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{{ route('struktur-kepengurusan') }}">Struktur Pengurus</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="{{ route('activities') }}">Galeri</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="{{ route('contact') }}">Kontak dan Sosial Media</a>
+                        <a class="nav-link text-light" href="{{ route('contact') }}">Kontak</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('login') }}" class="btn-login">
@@ -495,7 +508,7 @@
             <div class="row footer-content">
                 <div class="col-md-4 mb-4 mb-md-0">
                     <h5 class="footer-title">UKM Mapala Cakra Manggala</h5>
-                    <p>Mahasiswa Pecinta Alam tidak akan memelonco Anda, melainkan akan membimbing Anda. Alam lah yang akan mendidik Anda setiap saat, dalam setiap kondisi, setiap medan, dan setiap situasi. Bila semua itu mampu Anda hadapi, menjelmalah anda menjadi seorang putra putri alam yang TABAH,TANGGUH, TERAMPIL."</p>
+                    <p>CAKRA MANGGALA adalah organisasi mahasiswa pecinta alam di Politeknik Negeri Madiun yang didirikan pada 26 Juli 2013 yang berfungsi sebagai wadah bagi mahasiswa yang mencintai alam untuk menyalurkan minat mereka melalui kegiatan positif di alam bebas, sekaligus menjadi tempat pembentukan karakter pribadi yang tangguh, berjiwa sosial, dan peduli lingkungan</p>
                 </div>
                 <div class="col-md-4 mb-4 mb-md-0">
                     <h5 class="footer-title">Quick Links</h5>
@@ -521,7 +534,6 @@
             </div>
         </div>
     </footer>
-
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS JS -->
