@@ -287,7 +287,7 @@
             </div>
             
             <div class="menu-item">
-                <a href="#" class="menu-link">
+                <a href="{{ route('dashboard.pendaftar') }}" class="menu-link {{ request()->routeIs('dashboard.pendaftar*') ? 'active' : '' }}">
                     <i class="bi bi-people menu-icon"></i>
                     <span class="menu-text">Data Pendaftar</span>
                 </a>

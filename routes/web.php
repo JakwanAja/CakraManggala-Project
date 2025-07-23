@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StrukturController;
+use App\Http\Controllers\PendaftarController;
 use Illuminate\Support\Facades\Route;
 
 // Homepage routes
@@ -34,8 +35,12 @@ Route::middleware('auth')->group(function () {
     // Dashboard routes
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
+    // Data Pendaftar routes
+    Route::get('/dashboard/pendaftar', [PendaftarController::class, 'index'])->name('dashboard.pendaftar');
+    Route::get('/dashboard/pendaftar/{id}', [PendaftarController::class, 'show'])->name('dashboard.pendaftar.show');
+    Route::delete('/dashboard/pendaftar/{id}', [PendaftarController::class, 'destroy'])->name('dashboard.pendaftar.destroy');
+    
     // Future routes for dashboard modules
-    // Route::get('/dashboard/pendaftar', [DashboardController::class, 'pendaftar'])->name('dashboard.pendaftar');
     // Route::get('/dashboard/artikel', [DashboardController::class, 'artikel'])->name('dashboard.artikel');
     // Route::get('/dashboard/galeri', [DashboardController::class, 'galeri'])->name('dashboard.galeri');
 });
