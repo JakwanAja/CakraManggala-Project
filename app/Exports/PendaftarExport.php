@@ -1,8 +1,9 @@
 <?php
+// File: app/Exports/PendaftarExport.php
+
 namespace App\Exports;
 
-use App\Models\Pendaftaran;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
@@ -27,16 +28,13 @@ class PendaftarExport implements FromCollection, WithHeadings, WithMapping, With
 
     public function collection()
     {
-        $query = Pendaftaran::query()->orderBy('created_at', 'desc');
+        $query = DB::table('pendaftaran')->orderBy('created_at', 'desc');
 
-        if ($this->search) {
-            $query->search($this->search); // Scope dari model
-        }
-
+        // Apply jurusan filter
         if ($this->jurusan) {
-            $query->byJurusan($this->jurusan); // Scope dari model
+            $query->where('jurusan', $this->jurusan);
         }
-
+        
         return $query->get();
     }
 
@@ -64,7 +62,7 @@ class PendaftarExport implements FromCollection, WithHeadings, WithMapping, With
     {
         static $counter = 0;
         $counter++;
-
+        
         return [
             $counter,
             $pendaftar->nim,
@@ -73,19 +71,20 @@ class PendaftarExport implements FromCollection, WithHeadings, WithMapping, With
             $pendaftar->program_studi,
             $pendaftar->jenis_kelamin,
             $pendaftar->tempat_lahir,
-            Carbon::parse($pendaftar->tanggal_lahir)->format('d-m-Y'),
-            Carbon::parse($pendaftar->tanggal_lahir)->age . ' tahun',
+            \Carbon\Carbon::parse($pendaftar->tanggal_lahir)->format('d-m-Y'),
+            \Carbon\Carbon::parse($pendaftar->tanggal_lahir)->age . ' tahun',
             $pendaftar->no_hp,
             $pendaftar->alamat,
             $pendaftar->organisasi_yang_pernah_diikuti ?: 'Tidak Ada',
             $pendaftar->alasan_bergabung,
-            Carbon::parse($pendaftar->created_at)->format('d-m-Y H:i:s')
+            \Carbon\Carbon::parse($pendaftar->created_at)->format('d-m-Y H:i:s')
         ];
     }
 
     public function styles(Worksheet $sheet)
     {
         return [
+            // Style the first row as header
             1 => [
                 'font' => [
                     'bold' => true,
@@ -100,6 +99,7 @@ class PendaftarExport implements FromCollection, WithHeadings, WithMapping, With
                     'vertical' => Alignment::VERTICAL_CENTER
                 ]
             ],
+            // Style all cells
             'A:N' => [
                 'borders' => [
                     'allBorders' => [

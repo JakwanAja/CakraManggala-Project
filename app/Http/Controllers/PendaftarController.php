@@ -1,11 +1,11 @@
 <?php
-// File: app/Http/Controllers/PendaftarController.php (Improved Version)
+// File: app/Http/Controllers/PendaftarController.php
 
 namespace App\Http\Controllers;
 
-use App\Models\Pendaftaran;
 use App\Exports\PendaftarExport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -17,27 +17,34 @@ class PendaftarController extends Controller
         $jurusan = $request->get('jurusan');
         $perPage = $request->get('per_page', 10);
         
-        $query = Pendaftaran::query()->orderBy('created_at', 'desc');
+        $query = DB::table('pendaftaran')->orderBy('created_at', 'desc');
         
         // Apply search filter
         if ($search) {
-            $query->search($search);
+            $query->where(function($q) use ($search) {
+                $q->where('nama_lengkap', 'LIKE', "%{$search}%")
+                  ->orWhere('nim', 'LIKE', "%{$search}%")
+                  ->orWhere('program_studi', 'LIKE', "%{$search}%");
+            });
         }
         
         // Apply jurusan filter
         if ($jurusan) {
-            $query->byJurusan($jurusan);
+            $query->where('jurusan', $jurusan);
         }
         
         $pendaftar = $query->paginate($perPage);
         
         // Get statistics
         $stats = [
-            'total' => Pendaftaran::count(),
-            'teknik' => Pendaftaran::byJurusan('Teknik')->count(),
-            'akuntansi' => Pendaftaran::byJurusan('Akuntansi')->count(),
-            'administrasi' => Pendaftaran::byJurusan('Administrasi Bisnis')->count(),
-            'bulan_ini' => Pendaftaran::thisMonth()->count()
+            'total' => DB::table('pendaftaran')->count(),
+            'teknik' => DB::table('pendaftaran')->where('jurusan', 'Teknik')->count(),
+            'akuntansi' => DB::table('pendaftaran')->where('jurusan', 'Akuntansi')->count(),
+            'administrasi' => DB::table('pendaftaran')->where('jurusan', 'Administrasi Bisnis')->count(),
+            'bulan_ini' => DB::table('pendaftaran')
+                ->whereMonth('created_at', now()->month)
+                ->whereYear('created_at', now()->year)
+                ->count()
         ];
         
         return view('dashboard.pendaftar.index', compact('pendaftar', 'stats', 'search', 'jurusan', 'perPage'));
@@ -45,7 +52,7 @@ class PendaftarController extends Controller
     
     public function show($id)
     {
-        $pendaftar = Pendaftaran::find($id);
+        $pendaftar = DB::table('pendaftaran')->where('id', $id)->first();
         
         if (!$pendaftar) {
             return redirect()->route('dashboard.pendaftar')
@@ -57,7 +64,7 @@ class PendaftarController extends Controller
     
     public function destroy($id)
     {
-        $pendaftar = Pendaftaran::find($id);
+        $pendaftar = DB::table('pendaftaran')->where('id', $id)->first();
         
         if (!$pendaftar) {
             return redirect()->route('dashboard.pendaftar')
@@ -70,7 +77,7 @@ class PendaftarController extends Controller
         }
         
         // Delete record
-        $pendaftar->delete();
+        DB::table('pendaftaran')->where('id', $id)->delete();
         
         return redirect()->route('dashboard.pendaftar')
             ->with('success', 'Data pendaftar berhasil dihapus.');
@@ -78,11 +85,37 @@ class PendaftarController extends Controller
 
     public function export(Request $request)
     {
-        $search = $request->get('search');
-        $jurusan = $request->get('jurusan');
-        
-        $filename = 'data-pendaftar-' . date('Y-m-d-H-i-s') . '.xlsx';
-        
-        return Excel::download(new PendaftarExport($search, $jurusan), $filename);
+        try {
+            $search = $request->get('search');
+            $jurusan = $request->get('jurusan');
+            
+            // Debug: cek apakah ada data
+            $query = DB::table('pendaftaran');
+            if ($search) {
+                $query->where(function($q) use ($search) {
+                    $q->where('nama_lengkap', 'LIKE', "%{$search}%")
+                      ->orWhere('nim', 'LIKE', "%{$search}%")
+                      ->orWhere('program_studi', 'LIKE', "%{$search}%");
+                });
+            }
+            if ($jurusan) {
+                $query->where('jurusan', $jurusan);
+            }
+            
+            $dataCount = $query->count();
+            
+            if ($dataCount == 0) {
+                return redirect()->route('dashboard.pendaftar')
+                    ->with('error', 'Tidak ada data untuk diexport dengan filter yang dipilih.');
+            }
+            
+            $filename = 'data-pendaftar-' . date('Y-m-d-H-i-s') . '.xlsx';
+            
+            return Excel::download(new PendaftarExport($search, $jurusan), $filename);
+            
+        } catch (\Exception $e) {
+            return redirect()->route('dashboard.pendaftar')
+                ->with('error', 'Terjadi kesalahan saat export data: ' . $e->getMessage());
+        }
     }
 }

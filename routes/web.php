@@ -37,9 +37,11 @@ Route::middleware('auth')->group(function () {
     
     // Data Pendaftar routes
     Route::get('/dashboard/pendaftar', [PendaftarController::class, 'index'])->name('dashboard.pendaftar');
+    Route::get('/dashboard/pendaftar/export', [PendaftarController::class, 'export'])->name('dashboard.pendaftar.export');
     Route::get('/dashboard/pendaftar/{id}', [PendaftarController::class, 'show'])->name('dashboard.pendaftar.show');
     Route::delete('/dashboard/pendaftar/{id}', [PendaftarController::class, 'destroy'])->name('dashboard.pendaftar.destroy');
-    Route::get('/dashboard/pendaftar/export', [PendaftarController::class, 'export'])->name('dashboard.pendaftar.export');
+    Route::get('/dashboard/pendaftar/export-simple', [PendaftarController::class, 'exportSimple'])->name('dashboard.pendaftar.exportSimple');
+
     
     // Future routes for dashboard modules
     // Route::get('/dashboard/artikel', [DashboardController::class, 'artikel'])->name('dashboard.artikel');
