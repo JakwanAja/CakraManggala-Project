@@ -4,8 +4,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pendaftaran;
+use App\Exports\PendaftarExport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PendaftarController extends Controller
 {
@@ -72,5 +74,15 @@ class PendaftarController extends Controller
         
         return redirect()->route('dashboard.pendaftar')
             ->with('success', 'Data pendaftar berhasil dihapus.');
+    }
+
+    public function export(Request $request)
+    {
+        $search = $request->get('search');
+        $jurusan = $request->get('jurusan');
+        
+        $filename = 'data-pendaftar-' . date('Y-m-d-H-i-s') . '.xlsx';
+        
+        return Excel::download(new PendaftarExport($search, $jurusan), $filename);
     }
 }

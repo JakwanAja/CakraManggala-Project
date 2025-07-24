@@ -16,6 +16,12 @@
                 </ol>
             </nav>
         </div>
+        <div>
+            <a href="{{ route('dashboard.pendaftar.export', request()->query()) }}" 
+               class="btn btn-success">
+                <i class="bi bi-download"></i> Export Excel
+            </a>
+        </div>
     </div>
 </div>
 
@@ -36,7 +42,7 @@
                 <i class="bi bi-gear"></i>
             </div>
             <div class="stat-number">{{ $stats['teknik'] }}</div>
-            <div class="stat-label">Jurusan Teknik</div>
+            <div class="stat-label">Fakultas Teknik</div>
         </div>
     </div>
     <div class="col-lg-3 col-md-6 mb-4">
@@ -45,7 +51,7 @@
                 <i class="bi bi-calculator"></i>
             </div>
             <div class="stat-number">{{ $stats['akuntansi'] + $stats['administrasi'] }}</div>
-            <div class="stat-label">Jurusan Lain</div>
+            <div class="stat-label">Fakultas Lainnya</div>
         </div>
     </div>
 </div>

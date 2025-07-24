@@ -34,7 +34,7 @@
 </div>
 
 <!-- Statistics Cards -->
-<div class="row mb-4">
+<!--<div class="row mb-4">
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="stat-card">
             <div class="stat-icon" style="background: #3b82f6;">
@@ -89,8 +89,7 @@
 </div>
 
 <!-- Charts and Recent Activity -->
-<div class="row">
-    <!-- Chart -->
+<!--<div class="row">
     <div class="col-xl-8 col-lg-7">
         <div class="card border-0 shadow-sm h-100" style="border-radius: 15px;">
             <div class="card-header bg-white border-0 pb-0" style="border-radius: 15px 15px 0 0;">
@@ -112,10 +111,10 @@
                 <canvas id="registrationChart" height="100"></canvas>
             </div>
         </div>
-    </div>
+    </div>-->
     
     <!-- Recent Activities -->
-    <div class="col-xl-4 col-lg-5">
+    <!--<div class="col-xl-4 col-lg-5">
         <div class="card border-0 shadow-sm h-100" style="border-radius: 15px;">
             <div class="card-header bg-white border-0 pb-0" style="border-radius: 15px 15px 0 0;">
                 <h5 class="mb-0 fw-bold text-dark">Aktivitas Terbaru</h5>
@@ -167,7 +166,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
 <!-- Quick Actions -->
 <div class="row mt-4">
@@ -182,7 +181,7 @@
                         <a href="#" class="text-decoration-none">
                             <div class="quick-action-card p-3 text-center border rounded-3 h-100" style="transition: all 0.3s ease;">
                                 <i class="bi bi-person-plus-fill text-primary" style="font-size: 2rem;"></i>
-                                <h6 class="mt-2 mb-0">Lihat Pendaftar</h6>
+                                <h6 class="mt-2 mb-0" href="{{ route('dashboard.pendaftar') }}">Lihat Pendaftar</h6>
                                 <small class="text-muted">Kelola data pendaftar</small>
                             </div>
                         </a>
