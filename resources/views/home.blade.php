@@ -40,7 +40,7 @@
         </div>
     </section>
 
-    <!-- News Section -->
+        <!-- News Section -->
     <section class="news-section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">
@@ -48,72 +48,69 @@
                 Berita & Artikel Terbaru
             </h2>
             
-            <div class="row g-3 g-md-4">
-                <!-- News Card 1 -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card news-card h-100" data-aos="fade-up">
-                        <img src="{{ asset('image/img2.jpeg') }}" class="card-img-top" alt="Pendakian Lawu" loading="lazy">
-                        <div class="card-body d-flex flex-column">
-                            <div class="news-meta">
-                                <i class="bi bi-calendar"></i> <span class="d-none d-sm-inline">19 April 2025</span><span class="d-sm-none">19/04/25</span> | 
-                                <i class="bi bi-person"></i> AdminCM
+            @if($artikels->count() > 0)
+                <div class="row g-3 g-md-4">
+                    @foreach($artikels as $artikel)
+                    <!-- News Card -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card news-card h-100" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+                            @if($artikel->gambar_utama)
+                                <img src="{{ asset('storage/' . $artikel->gambar_utama) }}" 
+                                    class="card-img-top" 
+                                    alt="{{ $artikel->judul }}" 
+                                    loading="lazy"
+                                    style="height: 200px; object-fit: cover;">
+                            @else
+                                <div class="card-img-top bg-light d-flex align-items-center justify-content-center" 
+                                    style="height: 200px;">
+                                    <i class="bi bi-image text-muted" style="font-size: 3rem;"></i>
+                                </div>
+                            @endif
+                            
+                            <div class="card-body d-flex flex-column">
+                                <div class="news-meta">
+                                    <i class="bi bi-calendar"></i> 
+                                    <span class="d-none d-sm-inline">{{ $artikel->created_at->format('d F Y') }}</span>
+                                    <span class="d-sm-none">{{ $artikel->created_at->format('d/m/y') }}</span> | 
+                                    <i class="bi bi-person"></i> {{ $artikel->user->name }}
+                                    @if($artikel->views > 0)
+                                        | <i class="bi bi-eye"></i> {{ number_format($artikel->views) }}
+                                    @endif
+                                </div>
+                                
+                                <h5 class="card-title">{{ $artikel->judul }}</h5>
+                                
+                                <p class="card-text flex-grow-1">
+                                    {{ $artikel->excerpt ?: Str::limit(strip_tags($artikel->konten), 120) }}
+                                </p>
+                                
+                                <a href="{{ route('artikel.show', $artikel->slug) }}" 
+                                class="btn btn-outline-primary btn-sm mt-auto">
+                                    <span class="d-none d-sm-inline">Baca Selengkapnya</span>
+                                    <span class="d-sm-none">Baca</span>
+                                </a>
                             </div>
-                            <h5 class="card-title">Musim Pengembaraan I: Menuju Puncak Tertinggi ke 6 Jawa</h5>
-                            <p class="card-text flex-grow-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</p>
-                            <a href="#" class="btn btn-outline-primary btn-sm mt-auto">
-                                <span class="d-none d-sm-inline">Baca Selengkapnya</span>
-                                <span class="d-sm-none">Baca</span>
-                            </a>
                         </div>
                     </div>
+                    @endforeach
                 </div>
                 
-                <!-- News Card 2 -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card news-card h-100" data-aos="fade-up" data-aos-delay="100">
-                        <img src="{{ asset('image/img1.jpeg') }}" class="card-img-top" alt="Training SAR" loading="lazy">
-                        <div class="card-body d-flex flex-column">
-                            <div class="news-meta">
-                                <i class="bi bi-calendar"></i> <span class="d-none d-sm-inline">4 Juli 2025</span><span class="d-sm-none">04/07/25</span> | 
-                                <i class="bi bi-person"></i> Kegiatan
-                            </div>
-                            <h5 class="card-title">Diklat Akhir XIII : Cakra Manggala Siap Melaju Tanpa Batas</h5>
-                            <p class="card-text flex-grow-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</p>
-                            <a href="#" class="btn btn-outline-primary btn-sm mt-auto">
-                                <span class="d-none d-sm-inline">Baca Selengkapnya</span>
-                                <span class="d-sm-none">Baca</span>
-                            </a>
-                        </div>
+                <!-- Link ke halaman artikel lengkap -->
+                @if($artikels->count() >= 6)
+                    <div class="text-center mt-4" data-aos="fade-up">
+                        <a href="{{ route('artikel.index') }}" class="btn btn-primary">
+                            <i class="bi bi-arrow-right"></i> Lihat Semua Artikel
+                        </a>
                     </div>
+                @endif
+            @else
+                <!-- Jika belum ada artikel -->
+                <div class="text-center py-5" data-aos="fade-up">
+                    <i class="bi bi-newspaper display-1 text-muted"></i>
+                    <h5 class="mt-3 text-muted">Belum Ada Artikel</h5>
+                    <p class="text-muted">Artikel dan berita terbaru akan segera hadir.</p>
                 </div>
-                
-                <!-- News Card 3 -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card news-card h-100" data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Konservasi Hutan" loading="lazy">
-                        <div class="card-body d-flex flex-column">
-                            <div class="news-meta">
-                                <i class="bi bi-calendar"></i> <span class="d-none d-sm-inline">5 Juli 2025</span><span class="d-sm-none">05/07/25</span> | 
-                                <i class="bi bi-person"></i> Konservasi
-                            </div>
-                            <h5 class="card-title">Ekspedisi Merah Putih di Tebing Kertoembo</h5>
-                            <p class="card-text flex-grow-1">Dalam rangka memperingati Hari Kemerdekaan Republik Indonesia ke-78, tim Cakra Manggala melakukan pendakian dan pengibaran bendera Merah Putih di puncak tebing Kertoembo</p>
-                            <a href="#" class="btn btn-outline-primary btn-sm mt-auto">
-                                <span class="d-none d-sm-inline">Baca Selengkapnya</span>
-                                <span class="d-sm-none">Baca</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-4" data-aos="fade-up">
-                <a href="#" class="btn btn-primary btn-lg">
-                    <i class="bi bi-journal-text"></i> 
-                    <span class="d-none d-sm-inline">Lihat Semua Berita</span>
-                    <span class="d-sm-none">Semua Berita</span>
-                </a>
-            </div>
+            @endif
         </div>
     </section>
 

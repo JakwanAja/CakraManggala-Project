@@ -5,13 +5,29 @@ namespace App\Http\Controllers;
 
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
+use App\Models\Artikel;
 use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+
+        // Get latest articles untuk section berita
+        $artikels = Artikel::published()
+        ->with('user')
+        ->latest()
+        ->limit(6) // Tampilkan 6 artikel terbaru
+        ->get();
+
+        // Get statistics (jika diperlukan)
+        $stats = [
+        'total_artikel' => Artikel::published()->count(),
+        'total_pendaftar' => class_exists('App\Models\Pendaftar') ? \App\Models\Pendaftaran::count() : 0,
+        // Tambahkan statistik lain sesuai kebutuhan
+        ];
+
+        return view('home', compact('artikels', 'stats'));    
     }
 
     public function about()

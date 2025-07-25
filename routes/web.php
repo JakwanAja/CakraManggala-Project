@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\PendaftarController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\Dashboard\ArtikelController as DashboardArtikelController;
 
 // Homepage routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -42,8 +44,19 @@ Route::middleware('auth')->group(function () {
     Route::delete('/dashboard/pendaftar/{id}', [PendaftarController::class, 'destroy'])->name('dashboard.pendaftar.destroy');
     Route::get('/dashboard/pendaftar/export-simple', [PendaftarController::class, 'exportSimple'])->name('dashboard.pendaftar.exportSimple');
 
+    Route::get('/artikel', [ArtikelController::class, 'index'])->name('artikel.index');
+    Route::get('/artikel/{slug}', [ArtikelController::class, 'show'])->name('artikel.show');
+
+    // Dashboard Routes (Authenticated & Admin)
+    Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(function () {
+        // Artikel CRUD
+        Route::resource('artikel', DashboardArtikelController::class);
+        
+        // Toggle status artikel (publish/unpublish)
+        Route::patch('artikel/{artikel}/toggle-status', [DashboardArtikelController::class, 'toggleStatus'])
+            ->name('artikel.toggle-status');
+    });
     
     // Future routes for dashboard modules
-    // Route::get('/dashboard/artikel', [DashboardController::class, 'artikel'])->name('dashboard.artikel');
     // Route::get('/dashboard/galeri', [DashboardController::class, 'galeri'])->name('dashboard.galeri');
 });

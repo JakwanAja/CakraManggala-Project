@@ -178,16 +178,16 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-3 col-md-6 mb-3">
-                        <a href="#" class="text-decoration-none">
+                        <a href="{{ route('dashboard.pendaftar') }}" class="text-decoration-none">
                             <div class="quick-action-card p-3 text-center border rounded-3 h-100" style="transition: all 0.3s ease;">
                                 <i class="bi bi-person-plus-fill text-primary" style="font-size: 2rem;"></i>
-                                <h6 class="mt-2 mb-0" href="{{ route('dashboard.pendaftar') }}">Lihat Pendaftar</h6>
+                                <h6 class="mt-2 mb-0">Lihat Pendaftar</h6>
                                 <small class="text-muted">Kelola data pendaftar</small>
                             </div>
                         </a>
                     </div>
                     <div class="col-lg-3 col-md-6 mb-3">
-                        <a href="#" class="text-decoration-none">
+                        <a href="{{ route('dashboard.artikel.index') }}" class="text-decoration-none">
                             <div class="quick-action-card p-3 text-center border rounded-3 h-100" style="transition: all 0.3s ease;">
                                 <i class="bi bi-plus-circle-fill text-success" style="font-size: 2rem;"></i>
                                 <h6 class="mt-2 mb-0">Tambah Artikel</h6>

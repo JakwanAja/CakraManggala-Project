@@ -300,7 +300,7 @@
             </div>
             
             <div class="menu-item">
-                <a href="#" class="menu-link">
+                <a href="{{ route('dashboard.artikel.index') }}" class="menu-link {{ request()->routeIs('dashboard.artikel.index*') ? 'active' : '' }}">
                     <i class="bi bi-newspaper menu-icon"></i>
                     <span class="menu-text">Artikel & Berita</span>
                 </a>

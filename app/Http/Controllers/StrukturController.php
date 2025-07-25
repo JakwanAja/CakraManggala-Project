@@ -9,6 +9,6 @@ class StrukturController extends Controller
     public function index()
     {
 
-        return view('struktur-kepengurusan', compact('pengurus'));
+        return view('struktur-kepengurusan');
     }
 }
