@@ -226,7 +226,7 @@
 </section>
 
     <!-- Call to Action -->
-    <section class="py-5" style="background: var(--primary-color);">
+    <!--<section class="py-5" style="background: var(--primary-color);">
         <div class="container text-center text-white">
             <div data-aos="fade-up">
                 <h2 class="mb-3">Tertarik Bergabung dengan Kami?</h2>
@@ -239,5 +239,5 @@
                 </a>
             </div>
         </div>
-    </section>
+    </section>-->
 @endsection

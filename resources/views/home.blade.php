@@ -7,26 +7,21 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row justify-content-center">
                 <div class="col-12">
-                    <div class="hero-content text-center text-lg-start">
+                    <div class="hero-content text-center">
                         <h1 class="hero-title" data-aos="fade-up">
-                            UKM MAPALA<br>
+                            UKM Pecinta Alam<br>
                             <span style="color: #ff6b35;">CAKRA MANGGALA</span>
                         </h1>
-                        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
-                            Bergabunglah dengan komunitas pecinta alam yang berkomitmen menjaga kelestarian lingkungan dan mengembangkan jiwa petualang
-                        </p>
                         <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
-                            <a href="{{ route('join') }}" class="btn btn-oprec btn-lg mb-2 mb-md-0 me-0 me-md-3">
+                            <a href="{{ route('join') }}" class="btn btn-oprec btn-lg me-3">
                                 <i class="bi bi-person-plus"></i> 
-                                <span class="d-none d-sm-inline">Daftar Sekarang</span>
-                                <span class="d-sm-none">Daftar</span>
+                                Daftar Sekarang
                             </a>
                             <a href="{{ route('activities') }}" class="btn btn-outline-light btn-lg">
                                 <i class="bi bi-images"></i> 
-                                <span class="d-none d-sm-inline">Lihat Kegiatan</span>
-                                <span class="d-sm-none">Kegiatan</span>
+                                Lihat Kegiatan
                             </a>
                         </div>
                     </div>
@@ -186,7 +181,7 @@
     <section class="cta-section">
         <div class="container text-center text-white">
             <div data-aos="fade-up">
-                <h2 class="cta-title">Siap Memulai Petualangan?</h2>
+                <h2 class="cta-title">Hello Gengs!..,Siap Memulai Petualangan?</h2>
                 <p class="cta-subtitle">Bergabunglah dengan keluarga besar Mapala Cakra Manggala dan temukan pengalaman tak terlupakan di alam bebas</p>
                 <a href="{{ route('join') }}" class="btn btn-oprec btn-lg cta-button">
                     <i class="bi bi-arrow-right-circle"></i> 
@@ -201,13 +196,14 @@
     <style>
         /* Hero Section */
         .hero-section {
-        position: relative;
-        height: 80vh;
-        display: flex;
-        align-items: center;
-        color: white;
-        overflow: hidden;
-        z-index: 1;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow: hidden;
+            z-index: 1;
         }
 
         .hero-section::before {
@@ -239,11 +235,27 @@
             100% { background-image: url('/image/fotobersejarah1.jpg'); }
         }
 
-        .hero-title,
-        .hero-subtitle {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
-          
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
         .btn-oprec {
             background: var(--accent-color);
             border: none;
@@ -254,12 +266,51 @@
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
+            color: white;
         }
         
         .btn-oprec:hover {
             background: #e55722;
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+            color: white;
+        }
+
+        .btn-outline-light {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-outline-light:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
         }
     
         
@@ -387,48 +438,35 @@
         
         /* Mobile Responsive Breakpoints */
         @media (max-width: 991px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
             .hero-buttons {
                 flex-direction: column;
-                align-items: stretch;
+                gap: 0.75rem;
             }
             
             .hero-buttons .btn {
                 width: 100%;
                 max-width: 300px;
-                margin: 0 auto;
             }
         }
         
         @media (max-width: 768px) {
             .hero-section {
-                min-height: 60vh; /* diperkecil dari biasanya 100vh */
-                padding: 2.5rem 1rem 4rem;
+                height: 80vh;
+                padding: 2rem 1rem;
             }
 
-            .hero-section::before {
-                background-size: cover;
-                background-position: center top;
-                opacity: 0.35;
-            }
-
-            .hero-section::after {
-                background: rgba(0, 0, 0, 0.6); /* pastikan teks tetap terbaca */
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .btn-oprec {
-                padding: 0.8rem 1.8rem;
-                font-size: 1rem;
-                width: 100%;
-                justify-content: center;
+            .hero-title {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
             }
 
             .hero-buttons .btn {
-                width: 100%;
-                justify-content: center;
+                padding: 0.8rem 1.8rem;
+                font-size: 1rem;
             }
             
             .news-section, .quick-links {
@@ -458,36 +496,26 @@
         }
         
         @media (max-width: 576px) {
-            .hero-section::before {
-                background-size: cover;
-                background-position: center;
-                opacity: 0.4; /* Sedikit dikurangi agar teks lebih jelas di layar kecil */
-            }
-
-            .hero-section::after {
-                background: rgba(0, 0, 0, 0.7); /* Gelapkan sedikit layer overlay agar teks tetap terbaca */
+            .hero-section {
+                height: 70vh;
             }
 
             .hero-title {
-                font-size: 1.5rem;
-                margin-bottom: 0.75rem;
+                font-size: 2rem;
+                margin-bottom: 1.25rem;
             }
 
-            .hero-subtitle {
-                font-size: 0.9rem;
-                margin-bottom: 1rem;
+            .hero-buttons {
+                flex-direction: column;
+                gap: 0.5rem;
             }
 
             .hero-buttons .btn {
-                font-size: 0.85rem;
-                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+                padding: 0.75rem 1.5rem;
+                width: 100%;
+                max-width: 280px;
             }
-
-            .btn-oprec {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
-            }
-            
            
             .news-card .card-img-top {
                 height: 160px;
@@ -533,9 +561,9 @@
                 font-size: 1.8rem;
             }
             
-            .btn-lg {
-                font-size: 0.9rem;
-                padding: 0.75rem 1.25rem;
+            .hero-buttons .btn {
+                font-size: 0.85rem;
+                padding: 0.7rem 1.25rem;
             }
             
             .news-card .card-img-top {
@@ -547,14 +575,6 @@
         .news-card,
         .quick-link-item {
             height: 100%;
-        }
-        
-        /* Better button spacing on mobile */
-        @media (max-width: 575px) {
-            .btn + .btn {
-                margin-left: 0 !important;
-                margin-top: 0.5rem;
-            }
         }
     </style>
 @endsection

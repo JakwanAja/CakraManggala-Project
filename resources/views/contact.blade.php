@@ -25,12 +25,12 @@
                 <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap">
                     <div class="logo-item">
                         <img src="{{ asset('image/logo-pnm.png') }}" alt="Logo Cakra Manggala" class="img-fluid mb-2" style="max-width: 120px; height: auto;">
-                        <h6 class="text-success fw-bold">UKM Mapala<br>Cakra Manggala</h6>
+                        <h6 class="text-success fw-bold">Politeknik Negeri<br>Madiun</h6>
                     </div>
                     <div class="logo-divider d-none d-md-block" style="width: 2px; height: 80px; background: #2e7d32;"></div>
                     <div class="logo-item">
                         <img src="{{ asset('image/logo.png') }}" alt="Logo Politeknik Negeri Madiun" class="img-fluid mb-2" style="max-width: 120px; height: auto;">
-                        <h6 class="text-success fw-bold">Politeknik Negeri<br>Madiun</h6>
+                        <h6 class="text-success fw-bold">UKM Pecinta Alam<br>Cakra Manggala</h6>
                     </div>
                 </div>
             </div>
