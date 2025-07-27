@@ -12,10 +12,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        // Register auth middleware alias
+        // Register middleware aliases
         $middleware->alias([
             'auth' => \App\Http\Middleware\Authenticate::class,
             'guest' => \Illuminate\Auth\Middleware\RedirectIfAuthenticated::class,
+            // Tambahkan middleware reCAPTCHA
+            'recaptcha' => \App\Http\Middleware\RecaptchaMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

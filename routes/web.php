@@ -28,7 +28,7 @@ Route::get('/bergabung/sukses/{id}', [HomeController::class, 'joinSuccess'])->na
 // Authentication routes
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/login', [AuthController::class, 'login'])->middleware('recaptcha');
 });
 
 Route::middleware('auth')->group(function () {

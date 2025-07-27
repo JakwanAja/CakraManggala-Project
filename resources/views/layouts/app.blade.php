@@ -448,7 +448,7 @@
                 <div class="logo-text">
                     <span class="logo-title">Cakra Manggala</span>
                     <div class="logo-divider"></div>
-                    <small class="logo-subtitle">Tabah, tangguh, terampil</small>
+                    <small class="logo-subtitle">Tabah, Tangguh, Terampil</small>
                 </div>
             </div>
 

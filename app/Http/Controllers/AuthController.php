@@ -5,46 +5,97 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
+    /**
+     * Show the login form.
+     */
     public function showLoginForm()
     {
-        if (Auth::check()) {
-            return redirect()->route('dashboard');
-        }
-        
         return view('auth.login');
     }
 
+    /**
+     * Handle user login.
+     */
     public function login(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
+        // Validate the login request
+        $validator = Validator::make($request->all(), [
+            'email' => ['required', 'email'],
+            'password' => ['required', 'string'],
+            'g-recaptcha-response' => ['required'], // reCAPTCHA sudah divalidasi di middleware
+        ], [
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'password.required' => 'Password wajib diisi.',
+            'g-recaptcha-response.required' => 'Mohon selesaikan verifikasi reCAPTCHA.',
         ]);
 
-        $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials, $request->boolean('remember'))) {
-            $request->session()->regenerate();
-            
-            return redirect()->intended(route('dashboard'))->with('success', 'Selamat datang di dashboard!');
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput($request->except('password', 'g-recaptcha-response'));
         }
 
-        return back()->withErrors([
+        // Get credentials
+        $credentials = $request->only('email', 'password');
+        $remember = $request->boolean('remember');
+
+        // Attempt to log the user in
+        if (Auth::attempt($credentials, $remember)) {
+            $request->session()->regenerate();
+            
+            // Log successful login
+            Log::info('User logged in successfully', [
+                'email' => $request->email,
+                'ip' => $request->ip(),
+                'user_agent' => $request->userAgent(),
+                'timestamp' => now(),
+            ]);
+
+            return redirect()->intended(route('dashboard'))
+                ->with('success', 'Selamat datang kembali!');
+        }
+
+        // Log failed login attempt
+        Log::warning('Failed login attempt', [
+            'email' => $request->email,
+            'ip' => $request->ip(),
+            'user_agent' => $request->userAgent(),
+            'timestamp' => now(),
+        ]);
+
+        // If login fails, return back with error
+        throw ValidationException::withMessages([
             'email' => 'Email atau password yang Anda masukkan salah.',
-        ])->onlyInput('email');
+        ]);
     }
 
+    /**
+     * Handle user logout.
+     */
     public function logout(Request $request)
     {
+        // Log logout
+        if (Auth::check()) {
+            Log::info('User logged out', [
+                'email' => Auth::user()->email,
+                'ip' => $request->ip(),
+                'timestamp' => now(),
+            ]);
+        }
+
         Auth::logout();
-        
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        
-        return redirect()->route('home')->with('success', 'Anda berhasil logout.');
+
+        return redirect()->route('home')
+            ->with('success', 'Anda telah berhasil keluar.');
     }
 }
