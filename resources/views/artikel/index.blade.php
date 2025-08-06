@@ -108,13 +108,6 @@
                         Belum Ada Artikel
                     @endif
                 </h3>
-                <p class="text-muted">
-                    @if($search)
-                        Tidak ada artikel yang sesuai dengan pencarian "{{ $search }}".
-                    @else
-                        Artikel dan berita akan segera hadir.
-                    @endif
-                </p>
                 @if($search)
                     <a href="{{ route('artikel.index') }}" class="btn btn-primary">
                         <i class="bi bi-arrow-left"></i> Kembali ke Semua Artikel

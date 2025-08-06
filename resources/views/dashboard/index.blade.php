@@ -196,11 +196,11 @@
                         </a>
                     </div>
                     <div class="col-lg-3 col-md-6 mb-3">
-                        <a href="#" class="text-decoration-none">
+                        <a href="{{ route('dashboard.kegiatan.index') }}" class="text-decoration-none">
                             <div class="quick-action-card p-3 text-center border rounded-3 h-100" style="transition: all 0.3s ease;">
                                 <i class="bi bi-images text-warning" style="font-size: 2rem;"></i>
-                                <h6 class="mt-2 mb-0">Upload Galeri</h6>
-                                <small class="text-muted">Tambah foto kegiatan</small>
+                                <h6 class="mt-2 mb-0">Jadwal Kegiatan</h6>
+                                <small class="text-muted">Lihat Jadwal kegiatan</small>
                             </div>
                         </a>
                     </div>

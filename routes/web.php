@@ -9,6 +9,7 @@ use App\Http\Controllers\PendaftarController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\Dashboard\ArtikelController as DashboardArtikelController;
+use App\Http\Controllers\Dashboard\KegiatanController; // Tambahkan import ini
 
 // Homepage routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -55,6 +56,9 @@ Route::middleware('auth')->group(function () {
         // Toggle status artikel (publish/unpublish)
         Route::patch('artikel/{artikel}/toggle-status', [DashboardArtikelController::class, 'toggleStatus'])
             ->name('artikel.toggle-status');
+        
+        // Kegiatan CRUD - Tambahkan routes ini
+        Route::resource('kegiatan', KegiatanController::class);
     });
     
     // Future routes for dashboard modules
