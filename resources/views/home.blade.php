@@ -19,10 +19,6 @@
                                 <i class="bi bi-person-plus"></i> 
                                 Daftar Sekarang
                             </a>
-                            <a href="{{ route('activities') }}" class="btn btn-outline-light btn-lg">
-                                <i class="bi bi-images"></i> 
-                                Lihat Kegiatan
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -40,7 +36,7 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">
                 <i class="bi bi-newspaper me-2"></i>
-                Berita & Artikel Terbaru
+                Berita, Artikel & Catatan Perjalanan 
             </h2>
             
             @if($artikels->count() > 0)
@@ -109,79 +105,11 @@
         </div>
     </section>
 
-    <!-- Quick Links Section 
-    <section class="quick-links">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">
-                <i class="bi bi-lightning me-2"></i>
-                Akses Cepat
-            </h2>
-            
-            <div class="row g-3 g-md-4">
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="quick-link-item h-100" data-aos="fade-up">
-                        <div class="quick-link-icon">
-                            <i class="bi bi-people"></i>
-                        </div>
-                        <h5>Profil Organisasi</h5>
-                        <p class="quick-link-desc">Pelajari sejarah, visi misi, dan struktur kepengurusan UKM Mapala Cakra Manggala</p>
-                        <a href="{{ route('about') }}" class="btn btn-outline-success btn-sm mt-auto">
-                            <span class="d-none d-sm-inline">Lihat Detail</span>
-                            <span class="d-sm-none">Detail</span>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="quick-link-item h-100" data-aos="fade-up" data-aos-delay="100">
-                        <div class="quick-link-icon">
-                            <i class="bi bi-images"></i>
-                        </div>
-                        <h5>Galeri Kegiatan</h5>
-                        <p class="quick-link-desc">Dokumentasi lengkap ekspedisi, pendakian, susur sungai, dan kegiatan konservasi kami</p>
-                        <a href="{{ route('activities') }}" class="btn btn-outline-success btn-sm mt-auto">
-                            <span class="d-none d-sm-inline">Jelajahi</span>
-                            <span class="d-sm-none">Galeri</span>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="quick-link-item h-100" data-aos="fade-up" data-aos-delay="200">
-                        <div class="quick-link-icon">
-                            <i class="bi bi-person-plus"></i>
-                        </div>
-                        <h5>Pendaftaran Anggota</h5>
-                        <p class="quick-link-desc">Bergabung dengan komunitas pecinta alam terbesar di kampus dan wujudkan jiwa petualangmu</p>
-                        <a href="{{ route('join') }}" class="btn btn-warning btn-sm mt-auto">
-                            <span class="d-none d-sm-inline">Daftar Sekarang</span>
-                            <span class="d-sm-none">Daftar</span>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="quick-link-item h-100" data-aos="fade-up" data-aos-delay="300">
-                        <div class="quick-link-icon">
-                            <i class="bi bi-geo-alt"></i>
-                        </div>
-                        <h5>Hubungi Kami</h5>
-                        <p class="quick-link-desc">Informasi kontak, lokasi sekretariat, dan akses ke media sosial resmi kami</p>
-                        <a href="{{ route('contact') }}" class="btn btn-outline-success btn-sm mt-auto">
-                            <span class="d-none d-sm-inline">Kontak</span>
-                            <span class="d-sm-none">Kontak</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <!-- Call to Action -->
     <section class="cta-section">
         <div class="container text-center text-white">
             <div data-aos="fade-up">
-                <h2 class="cta-title">Hello Gengs!..,Siap Memulai Petualangan?</h2>
+                <h2 class="cta-title">Hello Gengs! Siap Memulai Petualangan?</h2>
                 <p class="cta-subtitle">Bergabunglah dengan keluarga besar Mapala Cakra Manggala dan temukan pengalaman tak terlupakan di alam bebas</p>
                 <a href="{{ route('join') }}" class="btn btn-oprec btn-lg cta-button">
                     <i class="bi bi-arrow-right-circle"></i> 
@@ -312,29 +240,6 @@
                 transform: translateX(-50%) translateY(-5px);
             }
         }
-    
-        
-        /* Statistics Section */
-        .stats-section {
-            padding: 3rem 0;
-        }
-        
-        .stat-item {
-            padding: 1.5rem 1rem;
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            color: var(--accent-color);
-        }
-        
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
         
         /* News Cards */
         .news-card {
@@ -372,46 +277,6 @@
             font-size: 0.9rem;
             color: #666;
             line-height: 1.5;
-        }
-        
-        /* Quick Links */
-        .quick-link-item {
-            text-align: center;
-            padding: 2rem 1.5rem;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            border: 2px solid #e9ecef;
-            background: white;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        
-        .quick-link-item:hover {
-            border-color: var(--secondary-color);
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.15);
-        }
-        
-        .quick-link-icon {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-        
-        .quick-link-item h5 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-        
-        .quick-link-desc {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.5;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
         }
         
         /* CTA Section */
@@ -474,16 +339,8 @@
             }
             
             .section-title {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
                 margin-bottom: 2rem;
-            }
-            
-            .quick-link-item {
-                padding: 1.5rem 1rem;
-            }
-            
-            .quick-link-icon {
-                font-size: 2rem;
             }
             
             .cta-section {
@@ -525,20 +382,8 @@
                 padding: 1rem;
             }
             
-            .quick-link-item {
-                padding: 1.25rem 0.75rem;
-            }
-            
-            .quick-link-item h5 {
-                font-size: 1rem;
-            }
-            
-            .quick-link-desc {
-                font-size: 0.85rem;
-            }
-            
             .cta-title {
-                font-size: 1.75rem;
+                font-size: 1.5rem;
             }
             
             .cta-subtitle {
@@ -546,7 +391,7 @@
             }
             
             .scroll-indicator {
-                bottom: 1rem;
+                bottom: 0.5rem;
             }
         }
         

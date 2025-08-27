@@ -316,7 +316,7 @@
                                           id="alasan_bergabung" 
                                           name="alasan_bergabung" 
                                           rows="4" 
-                                          placeholder="Jelaskan alasan Anda ingin bergabung dengan UKM Mapala Cakra Manggala (minimal 20 karakter)">{{ old('alasan_bergabung') }}</textarea>
+                                          placeholder="Alasan Anda ingin bergabung dengan UKM Cakra Manggala (minimal 20 karakter)">{{ old('alasan_bergabung') }}</textarea>
                                 <div class="form-text">Minimal 20 karakter</div>
                                 @error('alasan_bergabung')
                                     <div class="invalid-feedback">{{ $message }}</div>

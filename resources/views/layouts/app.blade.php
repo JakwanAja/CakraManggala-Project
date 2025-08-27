@@ -464,25 +464,15 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" href="{{ route('home') }}">Beranda</a>
                     </li>
-                    <!--<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-light" href="#" id="profilDropdown" role="button" 
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                            Profil
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="profilDropdown">
-                            <li><a class="dropdown-item" href="{{ route('about') }}">Tentang Kami</a></li>
-                            <li><a class="dropdown-item" href="{{ route('struktur-kepengurusan') }}">Struktur Kepengurusan</a></li>
-                        </ul>
-                    </li>-->
                     <li class="nav-item">
                         <a class="nav-link text-light" href="{{ route('about') }}">Profil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="{{ route('struktur-kepengurusan') }}">Struktur Pengurus</a>
+                        <a class="nav-link text-light" href="{{ route('struktur-kepengurusan') }}">Kepengurusan</a>
                     </li>
-                    <li class="nav-item">
+                    <!--<li class="nav-item">
                         <a class="nav-link text-light" href="{{ route('activities') }}">Galeri</a>
-                    </li>
+                    </li>-->
                     <li class="nav-item">
                         <a class="nav-link text-light" href="{{ route('contact') }}">Kontak</a>
                     </li>
