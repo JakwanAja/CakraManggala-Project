@@ -130,13 +130,13 @@
                             <td>{{ ($pendaftar->currentPage() - 1) * $pendaftar->perPage() + $index + 1 }}</td>
                             <td>
                                 @if($item->foto_diri)
-                                    <img src="{{ asset('storage/' . $item->foto_diri) }}" 
-                                         alt="Foto {{ $item->nama_lengkap }}" 
-                                         class="rounded-circle" 
-                                         style="width: 40px; height: 40px; object-fit: cover;">
+                                    <img src="{{ asset($item->foto_diri) }}"
+                                        alt="Foto {{ $item->nama_lengkap }}"
+                                        class="rounded-circle"
+                                        style="width: 40px; height: 40px; object-fit: cover;">
                                 @else
-                                    <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white" 
-                                         style="width: 40px; height: 40px; font-weight: 600;">
+                                    <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white"
+                                        style="width: 40px; height: 40px; font-weight: 600;">
                                         {{ strtoupper(substr($item->nama_lengkap, 0, 1)) }}
                                     </div>
                                 @endif

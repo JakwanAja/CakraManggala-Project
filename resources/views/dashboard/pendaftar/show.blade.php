@@ -31,13 +31,13 @@
         <div class="card">
             <div class="card-body text-center">
                 @if($pendaftar->foto_diri)
-                    <img src="{{ asset('storage/' . $pendaftar->foto_diri) }}" 
-                         alt="Foto {{ $pendaftar->nama_lengkap }}" 
-                         class="rounded-circle mb-3" 
-                         style="width: 150px; height: 150px; object-fit: cover;">
+                    <img src="{{ asset($pendaftar->foto_diri) }}"
+                        alt="Foto {{ $pendaftar->nama_lengkap }}"
+                        class="rounded-circle mb-3 shadow-sm"
+                        style="width: 150px; height: 150px; object-fit: cover; border: 3px solid #e9ecef;">
                 @else
-                    <div class="bg-secondary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center text-white" 
-                         style="width: 150px; height: 150px; font-size: 3rem; font-weight: 600;">
+                    <div class="bg-secondary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center text-white shadow-sm"
+                        style="width: 150px; height: 150px; font-size: 3rem; font-weight: 600; border: 3px solid #e9ecef;">
                         {{ strtoupper(substr($pendaftar->nama_lengkap, 0, 1)) }}
                     </div>
                 @endif
