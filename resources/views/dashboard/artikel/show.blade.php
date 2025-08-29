@@ -82,10 +82,10 @@
                 <!-- Gambar Utama -->
                 @if($artikel->gambar_utama)
                 <div class="mb-4 text-center">
-                    <img src="{{ asset('storage/' . $artikel->gambar_utama) }}" 
-                         alt="{{ $artikel->judul }}" 
-                         class="img-fluid rounded shadow-sm"
-                         style="max-height: 400px; object-fit: cover;">
+                    <img src="{{ asset($artikel->gambar_utama) }}"
+                        alt="{{ $artikel->judul }}"
+                        class="img-fluid rounded shadow-sm"
+                        style="max-height: 400px; object-fit: cover;">
                 </div>
                 @endif
 

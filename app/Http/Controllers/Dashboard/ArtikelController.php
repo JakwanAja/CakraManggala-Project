@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Artikel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
@@ -81,10 +81,22 @@ class ArtikelController extends Controller
 
         $data['slug'] = $slug;
 
-        // Upload gambar jika ada
+        // Upload gambar jika ada - SOLUSI BARU
         if ($request->hasFile('gambar_utama')) {
-            $data['gambar_utama'] = $request->file('gambar_utama')
-                ->store('artikel', 'public');
+            // Pastikan folder ada
+            $uploadPath = public_path('uploads/articles');
+            if (!File::exists($uploadPath)) {
+                File::makeDirectory($uploadPath, 0755, true);
+            }
+            
+            // Generate nama file unik
+            $filename = time() . '_' . Str::slug($request->judul) . '.' . $request->file('gambar_utama')->getClientOriginalExtension();
+            
+            // Upload langsung ke public/uploads/articles/
+            $request->file('gambar_utama')->move($uploadPath, $filename);
+            
+            // Simpan path relatif ke database
+            $data['gambar_utama'] = 'uploads/articles/' . $filename;
         }
 
         Artikel::create($data);
@@ -129,15 +141,27 @@ class ArtikelController extends Controller
             $data['slug'] = $slug;
         }
 
-        // Upload gambar baru jika ada
+        // Upload gambar baru jika ada - SOLUSI BARU
         if ($request->hasFile('gambar_utama')) {
-            // Hapus gambar lama
-            if ($artikel->gambar_utama) {
-                Storage::disk('public')->delete($artikel->gambar_utama);
+            // Hapus gambar lama jika ada
+            if ($artikel->gambar_utama && File::exists(public_path($artikel->gambar_utama))) {
+                File::delete(public_path($artikel->gambar_utama));
             }
             
-            $data['gambar_utama'] = $request->file('gambar_utama')
-                ->store('artikel', 'public');
+            // Pastikan folder ada
+            $uploadPath = public_path('uploads/articles');
+            if (!File::exists($uploadPath)) {
+                File::makeDirectory($uploadPath, 0755, true);
+            }
+            
+            // Generate nama file unik
+            $filename = time() . '_' . Str::slug($request->judul) . '.' . $request->file('gambar_utama')->getClientOriginalExtension();
+            
+            // Upload langsung ke public/uploads/articles/
+            $request->file('gambar_utama')->move($uploadPath, $filename);
+            
+            // Simpan path relatif ke database
+            $data['gambar_utama'] = 'uploads/articles/' . $filename;
         }
 
         $artikel->update($data);
@@ -148,9 +172,9 @@ class ArtikelController extends Controller
 
     public function destroy(Artikel $artikel)
     {
-        // Hapus gambar jika ada
-        if ($artikel->gambar_utama) {
-            Storage::disk('public')->delete($artikel->gambar_utama);
+        // Hapus gambar jika ada - SOLUSI BARU
+        if ($artikel->gambar_utama && File::exists(public_path($artikel->gambar_utama))) {
+            File::delete(public_path($artikel->gambar_utama));
         }
 
         $artikel->delete();

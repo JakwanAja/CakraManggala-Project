@@ -103,14 +103,19 @@
                             <div class="mb-3">
                                 <label class="form-label">Gambar Saat Ini</label>
                                 <div class="border rounded p-2">
-                                    <img src="{{ asset('storage/' . $artikel->gambar_utama) }}" 
-                                         alt="{{ $artikel->judul }}" 
-                                         class="img-fluid rounded" 
-                                         style="max-height: 200px;">
+                                    <img src="{{ asset($artikel->gambar_utama) }}"
+                                        alt="{{ $artikel->judul }}"
+                                        class="img-fluid rounded"
+                                        style="max-height: 200px;">
+                                    <div class="mt-2">
+                                        <small class="text-muted">
+                                            <i class="bi bi-info-circle"></i> 
+                                            File: {{ basename($artikel->gambar_utama) }}
+                                        </small>
+                                    </div>
                                 </div>
                             </div>
                             @endif
-
                             <div class="mb-3">
                                 <label for="gambar_utama" class="form-label">
                                     {{ $artikel->gambar_utama ? 'Ganti Gambar' : 'Gambar Utama' }}

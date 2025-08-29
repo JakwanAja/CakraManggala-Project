@@ -134,8 +134,9 @@
                         <tr>
                             <td>{{ ($artikels->currentPage() - 1) * $artikels->perPage() + $index + 1 }}</td>
                             <td>
+                                {{-- UPDATED: Menggunakan asset() untuk path yang benar --}}
                                 @if($artikel->gambar_utama)
-                                    <img src="{{ asset('storage/' . $artikel->gambar_utama) }}" 
+                                    <img src="{{ asset($artikel->gambar_utama) }}" 
                                          alt="{{ $artikel->judul }}" 
                                          class="rounded" 
                                          style="width: 60px; height: 40px; object-fit: cover;">
