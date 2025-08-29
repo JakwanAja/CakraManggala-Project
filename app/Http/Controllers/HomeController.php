@@ -73,11 +73,23 @@ class HomeController extends Controller
             'foto_diri.max' => 'Ukuran foto maksimal 2MB',
         ]);
 
-        // Upload foto
+        // Upload foto ke public/uploads/pendaftaran
         if ($request->hasFile('foto_diri')) {
-            $fileName = time() . '_' . $request->file('foto_diri')->getClientOriginalName();
-            $filePath = $request->file('foto_diri')->storeAs('pendaftaran', $fileName, 'public');
-            $validated['foto_diri'] = $filePath;
+            // Buat folder jika belum ada
+            $uploadPath = public_path('uploads/pendaftaran');
+            if (!file_exists($uploadPath)) {
+                mkdir($uploadPath, 0755, true);
+            }
+
+            // Generate nama file unik
+            $file = $request->file('foto_diri');
+            $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            
+            // Pindahkan file ke folder public
+            $file->move($uploadPath, $fileName);
+            
+            // Simpan path relatif ke database
+            $validated['foto_diri'] = 'uploads/pendaftaran/' . $fileName;
         }
 
         // Simpan ke database
