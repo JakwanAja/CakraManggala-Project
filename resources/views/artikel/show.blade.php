@@ -57,7 +57,7 @@
                     <!-- Gambar Utama -->
                     @if($artikel->gambar_utama)
                     <figure class="mb-4 text-center">
-                        <img src="{{ asset('storage/' . $artikel->gambar_utama) }}" 
+                        <img src="{{ asset($artikel->gambar_utama) }}" 
                              alt="{{ $artikel->judul }}" 
                              class="img-fluid rounded shadow-sm"
                              style="max-height: 500px; object-fit: cover; width: 100%;">

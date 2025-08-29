@@ -49,8 +49,7 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card h-100 shadow-sm hover-card">
                         @if($artikel->gambar_utama)
-                            <img src="{{ asset('storage/' . $artikel->gambar_utama) }}" 
-                                 class="card-img-top" 
+                            <img src="{{ asset($artikel->gambar_utama) }}"                                 class="card-img-top" 
                                  alt="{{ $artikel->judul }}"
                                  style="height: 200px; object-fit: cover;">
                         @else
