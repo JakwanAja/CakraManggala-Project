@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Struktur Kepengurusan - UKM Mapala Cakra Manggala')
+@section('title', 'Struktur Kepengurusan - UKM Cakra Manggala')
 
 @section('content')
 
@@ -213,7 +213,7 @@
                     </div>
                     <blockquote class="blockquote">
                         <p class="fs-5 fs-md-4 fw-light lh-lg mb-3 mb-md-4" style="color: #2c3e50; font-style: italic; font-size: 1.1rem !important; line-height: 1.6;">
-                            "Bersama-sama kita membangun organisasi yang kuat, berkarakter, dan bermanfaat bagi semua. Setiap pengurus adalah <strong>PEMIMPIN</strong> yang bertanggung jawab atas kemajuan UKM Mapala Cakra Manggala."
+                            "Bersama-sama kita membangun organisasi yang kuat, berkarakter, dan bermanfaat bagi semua. Setiap pengurus adalah <strong>PEMIMPIN</strong> yang bertanggung jawab atas kemajuan UKM Pecinta Alam Cakra Manggala."
                         </p>
                     </blockquote>
                     <div class="mt-3 mt-md-4">

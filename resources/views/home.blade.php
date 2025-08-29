@@ -1,7 +1,7 @@
 {{-- File: resources/views/home.blade.php --}}
 @extends('layouts.app')
 
-@section('title', 'Beranda - UKM Mapala Cakra Manggala')
+@section('title', 'Beranda - UKM Cakra Manggala')
 
 @section('content')
     <!-- Hero Section -->
@@ -110,7 +110,7 @@
         <div class="container text-center text-white">
             <div data-aos="fade-up">
                 <h2 class="cta-title">Hello Gengs! Siap Memulai Petualangan?</h2>
-                <p class="cta-subtitle">Bergabunglah dengan keluarga besar Mapala Cakra Manggala dan temukan pengalaman tak terlupakan di alam bebas</p>
+                <p class="cta-subtitle">Bergabunglah dengan keluarga besar Cakra Manggala dan temukan pengalaman tak terlupakan di alam bebas</p>
                 <a href="{{ route('join') }}" class="btn btn-oprec btn-lg cta-button">
                     <i class="bi bi-arrow-right-circle"></i> 
                     <span class="d-none d-sm-inline">Mulai Perjalananmu</span>

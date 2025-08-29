@@ -1,7 +1,7 @@
 {{-- File: resources/views/join-success.blade.php --}}
 @extends('layouts.app')
 
-@section('title', 'Pendaftaran Berhasil - UKM Mapala Cakra Manggala')
+@section('title', 'Pendaftaran Berhasil - UKM Cakra Manggala')
 
 @section('content')
 <style>
@@ -248,16 +248,16 @@
                             <ul class="step-list">
                                 <li><i class="bi bi-1-circle-fill text-primary"></i> Bergabung dengan grup WhatsApp</li>
                                 <li><i class="bi bi-3-circle-fill text-primary"></i> Dapatkan informasi kegiatan terbaru</li>
-                                <li><i class="bi bi-4-circle-fill text-primary"></i> Mulai petualangan bersama Mapala!</li>
+                                <li><i class="bi bi-4-circle-fill text-primary"></i> Mulai petualangan bersama CAKRA MANGGALA!</li>
                             </ul>
                         </div>
 
                         <div class="info-card" data-aos="fade-up" data-aos-delay="400">
                             <h5><i class="bi bi-whatsapp text-success"></i> Bergabung</h5>
                             <p class="mb-3">
-                                Yukk bergabung dengan grup WhatsApp Calon Anggota Baru UKM Mapala Cakra Manggala untuk mendapatkan informasi terbaru tentang kegiatan, jadwal latihan, dan pengumuman penting lainnya.
+                                Yukk bergabung dengan grup WhatsApp Calon Anggota Baru UKM Cakra Manggala untuk mendapatkan informasi terbaru tentang kegiatan, jadwal latihan, dan pengumuman penting lainnya.
                             </p>
-                            <a href="https://chat.whatsapp.com/GwOoCiwSqsP51c2ZYoYAzI?mode=ac_t" class="whatsapp-btn" target="_blank" data-aos="bounce" data-aos-delay="600">
+                            <a href="https://chat.whatsapp.com/JAT9OtV5e9V3HAw5P3unca" class="whatsapp-btn" target="_blank" data-aos="bounce" data-aos-delay="600">
                                 <i class="bi bi-whatsapp"></i>
                                 Gabung Grup WhatsApp
                             </a>

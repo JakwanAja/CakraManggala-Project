@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'UKM Mapala Cakra Manggala')</title>
+    <title>@yield('title', 'UKM Cakra Manggala')</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -497,7 +497,7 @@
         <div class="container">
             <div class="row footer-content">
                 <div class="col-md-4 mb-4 mb-md-0">
-                    <h5 class="footer-title">UKM Mapala Cakra Manggala</h5>
+                    <h5 class="footer-title">UKM Pecinta Alam Cakra Manggala</h5>
                     <p>CAKRA MANGGALA adalah organisasi mahasiswa pecinta alam di Politeknik Negeri Madiun yang didirikan pada 26 Juli 2013 yang berfungsi sebagai wadah bagi mahasiswa yang mencintai alam untuk menyalurkan minat mereka melalui kegiatan positif di alam bebas, sekaligus menjadi tempat pembentukan karakter pribadi yang tangguh, berjiwa sosial, dan peduli lingkungan</p>
                 </div>
                 <div class="col-md-4 mb-4 mb-md-0">

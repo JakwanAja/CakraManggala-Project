@@ -22,7 +22,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-8">
                         <h3 class="mb-2">Selamat Datang, {{ $user->name }}! 👋</h3>
-                        <p class="mb-0 opacity-90">Kelola website dan data UKM Mapala Cakra Manggala dengan mudah melalui dashboard ini.</p>
+                        <p class="mb-0 opacity-90">Kelola website dan data UKM Pecinta Alam Cakra Manggala dengan mudah melalui dashboard ini.</p>
                     </div>
                     <div class="col-md-4 text-end d-none d-md-block">
                         <i class="bi bi-speedometer2" style="font-size: 4rem; opacity: 0.3;"></i>

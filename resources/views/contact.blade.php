@@ -1,7 +1,7 @@
 {{-- File: resources/views/contact.blade.php --}}
 @extends('layouts.app')
 
-@section('title', 'Kontak dan Sosial Media - UKM Mapala Cakra Manggala')
+@section('title', 'Kontak dan Sosial Media - UKM Cakra Manggala')
 
 @section('content')
 
@@ -16,7 +16,7 @@
             <div class="col-12 text-center text-white">
                 <h1 class="display-5 fw-bold mb-3" data-aos="fade-up">Kontak dan Sosial Media</h1>
                 <p class="lead px-3" data-aos="fade-up" data-aos-delay="200">
-                    Hubungi kami untuk informasi lebih lanjut tentang UKM Mapala Cakra Manggala
+                    Hubungi kami untuk informasi lebih lanjut tentang UKM Pecinta Alam Cakra Manggala
                 </p>
             </div>
         </div>
@@ -62,7 +62,7 @@
                             <h4 style="color: var(--primary-color); font-size: 1.3rem;">Alamat Sekretariat</h4>
                         </div>
                         <div class="contact-info text-center">
-                            <p class="mb-2 fw-bold" style="font-size: 0.9rem;">Sekretariat UKM Mapala Cakra Manggala</p>
+                            <p class="mb-2 fw-bold" style="font-size: 0.9rem;">Sekretariat UKM Pecinta Alam Cakra Manggala</p>
                             <p class="mb-2" style="font-size: 0.85rem; line-height: 1.6;">Lantai 1 Gedung Perkuliahan Kampus 1</p>
                             <p class="mb-2" style="font-size: 0.85rem; line-height: 1.6;">Politeknik Negeri Madiun</p>
                             <p class="mb-0" style="font-size: 0.85rem; line-height: 1.6;">Jl. Serayu No.84, Pandean, Taman, Kec. Taman, Kota Madiun, Jawa Timur (63133)</p>
@@ -110,7 +110,7 @@
         </h2>
         <div class="text-center mb-4 mb-md-5" data-aos="fade-up" data-aos-delay="100">
             <p class="lead px-3" style="font-size: 1rem; line-height: 1.6;">
-                Dapatkan update terbaru tentang kegiatan, event, dan informasi penting lainnya dari UKM Mapala Cakra Manggala
+                Dapatkan update terbaru tentang kegiatan, event, dan informasi penting lainnya dari UKM Cakra Manggala
             </p>
         </div>
 
@@ -174,7 +174,7 @@
         </h2>
         <div class="text-center mb-4 mb-md-5" data-aos="fade-up" data-aos-delay="100">
             <p class="lead px-3" style="font-size: 1rem; line-height: 1.6;">
-                Temukan lokasi sekretariat UKM Mapala Cakra Manggala di Politeknik Negeri Madiun
+                Temukan lokasi sekretariat UKM Cakra Manggala di Politeknik Negeri Madiun
             </p>
         </div>
         

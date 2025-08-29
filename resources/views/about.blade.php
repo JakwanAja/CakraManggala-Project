@@ -29,7 +29,7 @@
                     <img src="{{ asset('image/fotobersejarah1.jpg') }}" 
                          class="img-fluid rounded shadow w-100" 
                          style="max-height: 350px; object-fit: cover;" 
-                         alt="Tim Mapala">
+                         alt="Tim CM">
                 </div>
             </div>
             <div class="col-12 col-lg-6" data-aos="fade-left">

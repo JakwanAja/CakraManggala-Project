@@ -1,7 +1,7 @@
 {{-- File: resources/views/join.blade.php --}}
 @extends('layouts.app')
 
-@section('title', 'Bergabung - UKM Mapala Cakra Manggala')
+@section('title', 'Bergabung - UKM Cakra Manggala')
 
 @section('content')
 <style>
