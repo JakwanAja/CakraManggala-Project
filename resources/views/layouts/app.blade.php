@@ -476,12 +476,12 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" href="{{ route('contact') }}">Kontak</a>
                     </li>
-                    <li class="nav-item">
+                    <!--<li class="nav-item">
                         <a href="{{ route('login') }}" class="btn-login">
                             <i class="bi bi-box-arrow-in-right"></i>
                             <span>Masuk</span>
                         </a>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
         </div>
