@@ -1,249 +1,68 @@
 @extends('layouts.app')
 
-@section('content')
+@section('title', 'Tentang Kami - UKM Cakra Manggala')
 
+@section('content')
 @php
-    $bgImage = asset('image/fotobersejarah2.jpg');
+    $heroImage = asset('image/fotobersejarah2.jpg');
 @endphp
 
-<!-- Hero Section -->
-<section class="hero-section" style="height: 50vh; background: linear-gradient(rgba(46, 125, 50, 0.8), rgba(27, 94, 32, 0.9)), url('{{ $bgImage }}'); background-size: cover; background-position: center;">
+<section class="page-hero">
+    <div class="page-hero__media" aria-hidden="true">
+        <div class="page-hero__fallback" style="background-image: url('{{ $heroImage }}'); position: absolute; inset: -4%; background-size: cover; background-position: center; filter: saturate(0.8) contrast(1.1); transform: scale(1.05);"></div>
+        <div class="page-hero__overlay"></div>
+    </div>
     <div class="container">
-        <div class="row align-items-center h-100">
-            <div class="col-12 text-center text-white">
-                <h1 class="display-5 fw-bold mb-3" data-aos="fade-up">Tentang Kami</h1>
-                <p class="lead px-3" data-aos="fade-up" data-aos-delay="200">
-                    Mengenal lebih dalam Unit Kegiatan Mahasiswa Pecinta Alam Cakra Manggala
-                </p>
-            </div>
+        <div class="page-hero__inner" data-aos="fade-up">
+            <span class="page-hero__eyebrow">
+                <i class="bi bi-info-circle"></i>
+                Jati Diri
+            </span>
+            <h1 class="page-hero__title">Mengenal<br><span>Cakra Manggala</span></h1>
+            <p class="page-hero__lead">
+                Sebuah wadah pembinaan karakter mahasiswa melalui media alam bebas yang telah berdiri sebagai saksi sejarah petualangan di Politeknik Negeri Madiun.
+            </p>
         </div>
     </div>
 </section>
 
-<!-- Profil Organisasi Section -->
-<section class="py-4 py-md-5">
+<section class="section-shell">
     <div class="container">
-        <div class="row align-items-center mb-4 mb-md-5">
-            <div class="col-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
-                <div class="text-center">
-                    <img src="{{ asset('image/fotobersejarah1.jpg') }}" 
-                         class="img-fluid rounded shadow w-100" 
-                         style="max-height: 350px; object-fit: cover;" 
-                         alt="Tim CM">
+        <div class="row g-4 g-lg-5 align-items-stretch">
+            <div class="col-12 col-lg-5" data-aos="fade-right">
+                <div class="media-panel">
+                    <img src="{{ asset('image/fotobersejarah1.jpg') }}" alt="Kegiatan tim Cakra Manggala">
                 </div>
             </div>
-            <div class="col-12 col-lg-6" data-aos="fade-left">
-                <div class="px-3 px-md-0">
-                    <h2 class="mb-3 mb-md-4 text-center text-lg-start" style="color: var(--primary-color);">
-                        <i class="bi bi-tree me-2"></i>Sejarah Singkat
-                    </h2>
-                    <div class="text-justify">
-                        <p class="lead mb-3 mb-md-4" style="font-size: 1rem; line-height: 1.6;">
-                            Kegiatan kepencintaalaman di Politeknik Negeri Madiun tumbuh dari semangat mahasiswa yang mencintai alam dan ingin menyalurkan kegemarannya melalui aktivitas positif. Melihat belum adanya wadah resmi, sekelompok mahasiswa berinisiatif mendirikan sebuah organisasi pada <strong>26 Juli 2013</strong> dengan nama <strong>GEMAPALA</strong> (Generasi Mahasiswa Pecinta Alam).
-                        </p>
-                        <p class="mb-3 mb-md-4" style="font-size: 0.95rem; line-height: 1.6;">
-                            Organisasi ini menjadi tempat berkumpul, belajar, dan bergerak bersama dalam melestarikan alam, membentuk karakter, serta mempererat solidaritas antaranggota melalui kegiatan di alam bebas. Pada <strong>19 Oktober 2014</strong>, GEMAPALA resmi berganti nama menjadi <strong>CAKRA MANGGALA</strong>, yang membawa semangat baru dalam menjalankan misi kepencintaalaman.
-                        </p>
-                        <p class="mb-0" style="font-size: 0.95rem; line-height: 1.6;">
-                            CAKRA MANGGALA hadir bukan hanya sebagai komunitas pecinta alam, tetapi juga sebagai wadah pembentukan pribadi tangguh, berjiwa sosial, dan peduli lingkungan. Berasaskan Pancasila dan UUD 1945, organisasi ini tetap netral dari politik dan konsisten menjalankan perannya sebagai pelopor kegiatan alam bebas yang edukatif, ilmiah, dan humanis di lingkungan Politeknik Negeri Madiun.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Visi Misi Section -->
-<section class="py-4 py-md-5 bg-light">
-    <div class="container">
-        <div class="row g-3 g-md-4">
-            <div class="col-12 col-lg-6 mb-3 mb-lg-4" data-aos="fade-up">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body p-3 p-md-4">
-                        <div class="text-center mb-3 mb-md-4">
-                            <i class="bi bi-eye" style="color: var(--primary-color); font-size: 2.5rem;"></i>
-                            <h3 class="mt-2 mt-md-3 mb-0" style="color: var(--primary-color); font-size: 1.5rem;">Visi</h3>
-                        </div>
-                        <p class="text-center mb-0" style="font-size: 0.95rem; line-height: 1.6;">
-                            "Mahasiswa Pecinta Alam Cakra Manggala Politeknik Negeri Madiun sebagai organisasi yang mengembangkan intelektualitas, jasmani, dan rohani serta menumbuhkan kesadaran terhadap alam, sehingga menjadi panutan bagi Pemuda Indonesia pada umumnya dan Politeknik Negeri Madiun Khususnya."
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6 mb-3 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body p-3 p-md-4">
-                        <div class="text-center mb-3 mb-md-4">
-                            <i class="bi bi-bullseye" style="color: var(--primary-color); font-size: 2.5rem;"></i>
-                            <h3 class="mt-2 mt-md-3 mb-0" style="color: var(--primary-color); font-size: 1.5rem;">Misi</h3>
-                        </div>
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-2 mb-md-3 d-flex align-items-start">
-                                <i class="bi bi-check-circle-fill text-success me-2 mt-1 flex-shrink-0"></i>
-                                <span style="font-size: 0.9rem; line-height: 1.5;">Menjalankan organisasi dengan prinsip tata kelola yang baik dan mengikat</span>
-                            </li>
-                            <li class="mb-2 mb-md-3 d-flex align-items-start">
-                                <i class="bi bi-check-circle-fill text-success me-2 mt-1 flex-shrink-0"></i>
-                                <span style="font-size: 0.9rem; line-height: 1.5;">Meningkatkan kemampuan teknis, fisik, dan kesadaran terhadap lingkungan hidup</span>
-                            </li>
-                            <li class="mb-2 mb-md-3 d-flex align-items-start">
-                                <i class="bi bi-check-circle-fill text-success me-2 mt-1 flex-shrink-0"></i>
-                                <span style="font-size: 0.9rem; line-height: 1.5;">Membangun hubungan yang baik dan saling menguntungkan dengan pihak internal maupun eksternal</span>
-                            </li>
-                            <li class="mb-0 d-flex align-items-start">
-                                <i class="bi bi-check-circle-fill text-success me-2 mt-1 flex-shrink-0"></i>
-                                <span style="font-size: 0.9rem; line-height: 1.5;">Mengembangkan kegiatan yang mendukung kemajuan ilmu pengetahuan</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Divisi Section -->
-<section class="py-4 py-md-5">
-    <div class="container">
-        <h2 class="text-center mb-4 mb-md-5 px-3" style="color: var(--primary-color);" data-aos="fade-up">
-            <i class="bi bi-diagram-3 me-2"></i>Divisi Kami
-        </h2>
-        <div class="row g-3 g-md-4">
-            <div class="col-12 col-lg-6 mb-3 mb-lg-0" data-aos="fade-up">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body p-3 p-md-4">
-                        <div class="text-center mb-3 mb-md-4">
-                            <div class="bg-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
-                                <i class="bi bi-tree-fill text-white" style="font-size: 1.8rem;"></i>
-                            </div>
-                            <h4 style="color: var(--primary-color); font-size: 1.3rem;">Gunung Hutan (GH)</h4>
-                        </div>
-                        <p class="text-center mb-3 mb-md-4" style="font-size: 0.9rem; line-height: 1.6;">
-                            Divisi yang mengkhususkan diri dalam kegiatan pendakian gunung, penjelajahan hutan, dan aktivitas alam bebas. Anggota divisi ini dilatih untuk memiliki kemampuan navigasi, survival, dan pemahaman mendalam tentang ekosistem pegunungan dan hutan.
-                        </p>
-                        <div class="text-center">
-                            <div class="d-flex flex-wrap justify-content-center gap-2">
-                                <small class="badge bg-light text-dark px-2 py-1">
-                                    <i class="bi bi-mountain me-1"></i> Pendakian
-                                </small>
-                                <small class="badge bg-light text-dark px-2 py-1">
-                                    <i class="bi bi-compass me-1"></i> Navigasi
-                                </small>
-                                <small class="badge bg-light text-dark px-2 py-1">
-                                    <i class="bi bi-flower1 me-1"></i> Konservasi
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body p-3 p-md-4">
-                        <div class="text-center mb-3 mb-md-4">
-                            <div class="bg-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
-                                <i class="bi bi-activity text-white" style="font-size: 1.8rem;"></i>
-                            </div>
-                            <h4 style="color: var(--primary-color); font-size: 1.3rem;">Rock Climbing (RC)</h4>
-                        </div>
-                        <p class="text-center mb-3 mb-md-4" style="font-size: 0.9rem; line-height: 1.6;">
-                            Divisi yang fokus pada kegiatan panjat tebing dan olahraga vertikal. Anggota divisi ini dilatih dalam teknik memanjat, penggunaan peralatan keselamatan, dan pemahaman tentang geologi batuan serta manajemen risiko dalam aktivitas vertikal.
-                        </p>
-                        <div class="text-center">
-                            <div class="d-flex flex-wrap justify-content-center gap-2">
-                                <small class="badge bg-light text-dark px-2 py-1">
-                                    <i class="bi bi-shield-check me-1"></i> Keselamatan
-                                </small>
-                                <small class="badge bg-light text-dark px-2 py-1">
-                                    <i class="bi bi-gear me-1"></i> Peralatan
-                                </small>
-                                <small class="badge bg-light text-dark px-2 py-1">
-                                    <i class="bi bi-trophy me-1"></i> Kompetisi
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Nilai-nilai Organisasi -->
-<section class="py-4 py-md-5 bg-light">
-    <div class="container">
-        <h2 class="text-center mb-4 mb-md-5 px-3" style="color: var(--primary-color);" data-aos="fade-up">
-            <i class="bi bi-heart me-2"></i>Nilai-nilai Organisasi
-        </h2>
-        <div class="row g-3 g-md-4">
-            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up">
-                <div class="text-center p-3 p-md-4 h-100 d-flex flex-column">
-                    <div class="bg-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3 mx-auto" style="width: 60px; height: 60px;">
-                        <i class="bi bi-shield-check text-white" style="font-size: 1.5rem;"></i>
-                    </div>
-                    <h6 class="mb-2" style="font-size: 1rem;">Integritas</h6>
-                    <p class="text-muted mb-0 flex-grow-1" style="font-size: 0.85rem; line-height: 1.4;">
-                        Berpegang teguh pada kejujuran, transparansi, dan konsistensi dalam setiap tindakan dan keputusan.
+            <div class="col-12 col-lg-7" data-aos="fade-left">
+                <div class="surface-card">
+                    <span class="section-kicker">
+                        <i class="bi bi-compass"></i>
+                        Sejarah Singkat
+                    </span>
+                    <h2 class="section-heading">Tumbuh dari kebutuhan akan wadah yang nyata</h2>
+                    <p class="section-lead mb-3">
+                        Kegiatan kepencintaalaman di Politeknik Negeri Madiun lahir dari semangat mahasiswa yang ingin belajar, bergerak, dan bertanggung jawab di alam bebas. Dari inisiatif itu, pada <strong>26 Juli 2013</strong> terbentuklah <strong>GEMAPALA</strong> sebagai ruang awal untuk menyalurkan minat yang sama.
                     </p>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                <div class="text-center p-3 p-md-4 h-100 d-flex flex-column">
-                    <div class="bg-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3 mx-auto" style="width: 60px; height: 60px;">
-                        <i class="bi bi-trophy text-white" style="font-size: 1.5rem;"></i>
-                    </div>
-                    <h6 class="mb-2" style="font-size: 1rem;">Prestasi</h6>
-                    <p class="text-muted mb-0 flex-grow-1" style="font-size: 0.85rem; line-height: 1.4;">
-                        Berusaha memberikan yang terbaik dan mencapai keunggulan dalam setiap kegiatan yang dilakukan.
+                    <p class="section-lead mb-3">
+                        Seiring berkembangnya identitas dan arah organisasi, pada <strong>19 Oktober 2014</strong> nama tersebut berubah menjadi <strong>Cakra Manggala</strong>. Perubahan ini tidak sekadar simbolik, tetapi menegaskan karakter organisasi yang lebih matang, disiplin, dan berorientasi pada pembentukan anggota.
                     </p>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                <div class="text-center p-3 p-md-4 h-100 d-flex flex-column">
-                    <div class="bg-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3 mx-auto" style="width: 60px; height: 60px;">
-                        <i class="bi bi-book text-white" style="font-size: 1.5rem;"></i>
-                    </div>
-                    <h6 class="mb-2" style="font-size: 1rem;">Pembelajaran</h6>
-                    <p class="text-muted mb-0 flex-grow-1" style="font-size: 0.85rem; line-height: 1.4;">
-                        Senantiasa belajar, mengembangkan diri, dan berbagi pengetahuan dengan sesama anggota.
+                    <p class="section-lead mb-0">
+                        Hari ini Cakra Manggala berjalan sebagai ruang pembelajaran teknis, fisik, mental, dan sosial. Fokusnya bukan hanya aktivitas lapangan, tetapi juga cara berpikir, cara bekerja sama, dan cara menjaga alam dengan sikap yang benar.
                     </p>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                <div class="text-center p-3 p-md-4 h-100 d-flex flex-column">
-                    <div class="bg-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3 mx-auto" style="width: 60px; height: 60px;">
-                        <i class="bi bi-lightning text-white" style="font-size: 1.5rem;"></i>
-                    </div>
-                    <h6 class="mb-2" style="font-size: 1rem;">Petualang</h6>
-                    <p class="text-muted mb-0 flex-grow-1" style="font-size: 0.85rem; line-height: 1.4;">
-                        Memiliki jiwa penjelajah yang berani menghadapi tantangan dan selalu siap untuk petualangan baru.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Quote Section -->
-<section class="py-4 py-md-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-10">
-                <div class="text-center px-3" data-aos="fade-up">
-                    <div class="mb-3 mb-md-4">
-                        <i class="bi bi-quote" style="color: var(--primary-color); font-size: 2.5rem;"></i>
-                    </div>
-                    <blockquote class="blockquote">
-                        <p class="fs-5 fs-md-4 fw-light lh-lg mb-3 mb-md-4" style="color: #2c3e50; font-style: italic; font-size: 1.1rem !important; line-height: 1.6;">
-                            "Mahasiswa Pecinta Alam tidak akan memelonco Anda, melainkan akan membimbing Anda. Alam lah yang akan mendidik Anda setiap saat, dalam setiap kondisi, setiap medan, dan setiap situasi. Bila semua itu mampu Anda hadapi, menjelmalah anda menjadi seorang putra putri alam yang <strong>TABAH, TANGGUH, TERAMPIL</strong>."
-                        </p>
-                    </blockquote>
-                    <div class="mt-3 mt-md-4">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <div class="bg-success" style="width: 30px; height: 2px;"></div>
-                            <i class="bi bi-tree mx-3" style="color: var(--primary-color); font-size: 1.5rem;"></i>
-                            <div class="bg-success" style="width: 30px; height: 2px;"></div>
+                    <div class="metric-strip">
+                        <div class="metric-item">
+                            <span class="metric-value">2013</span>
+                            <span class="metric-label">Awal berdiri sebagai ruang bersama mahasiswa pecinta alam.</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-value">2014</span>
+                            <span class="metric-label">Resmi memakai nama Cakra Manggala sebagai identitas organisasi.</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-value">1 Arah</span>
+                            <span class="metric-label">Bertumbuh lewat petualangan, kedisiplinan, dan pelestarian alam.</span>
                         </div>
                     </div>
                 </div>
@@ -252,101 +71,160 @@
     </div>
 </section>
 
-<style>
-@media (max-width: 768px) {
-    .hero-section {
-        height: 40vh !important;
-    }
-    
-    .hero-section h1 {
-        font-size: 2.2rem !important;
-    }
-    
-    .hero-section .lead {
-        font-size: 1rem !important;
-    }
-    
-    .card-body {
-        padding: 1rem !important;
-    }
-    
-    .text-justify {
-        text-align: justify;
-    }
-    
-    /* Better spacing for mobile */
-    .py-4 {
-        padding-top: 2rem !important;
-        padding-bottom: 2rem !important;
-    }
-}
+<section class="section-shell section-shell--soft">
+    <div class="container">
+        <div class="section-intro" data-aos="fade-up">
+            <span class="section-kicker">
+                <i class="bi bi-stars"></i>
+                Arah Organisasi
+            </span>
+            <h2 class="section-heading">Visi yang jelas, misi yang operasional</h2>
+            <p class="section-lead mx-auto">
+                Organisasi yang sehat membutuhkan arah yang bisa dipahami anggota dan diterjemahkan ke kegiatan nyata.
+            </p>
+        </div>
 
-@media (max-width: 576px) {
-    .hero-section {
-        height: 35vh !important;
-    }
-    
-    .hero-section h1 {
-        font-size: 1.8rem !important;
-    }
-    
-    .hero-section .lead {
-        font-size: 0.9rem !important;
-    }
-    
-    /* Adjust card spacing */
-    .g-3 > * {
-        padding-right: 0.5rem !important;
-        padding-left: 0.5rem !important;
-        margin-bottom: 1rem !important;
-    }
-    
-    /* Better text sizing for very small screens */
-    .card-body p,
-    .card-body li span {
-        font-size: 0.85rem !important;
-    }
-    
-    .card-body h4 {
-        font-size: 1.1rem !important;
-    }
-    
-    .card-body h6 {
-        font-size: 0.9rem !important;
-    }
-    
-    /* Quote section adjustments */
-    blockquote p {
-        font-size: 0.95rem !important;
-    }
-    
-    /* Nilai-nilai cards for mobile */
-    .col-6:nth-child(odd) {
-        padding-right: 0.25rem !important;
-    }
-    
-    .col-6:nth-child(even) {
-        padding-left: 0.25rem !important;
-    }
-}
+        <div class="row g-4">
+            <div class="col-12 col-lg-6" data-aos="fade-up">
+                <article class="surface-card">
+                    <span class="icon-badge mb-4"><i class="bi bi-eye-fill"></i></span>
+                    <h3 class="h2 mb-3" style="color: var(--primary-color);">Visi</h3>
+                    <p class="section-lead mb-0">
+                        Mahasiswa Pecinta Alam Cakra Manggala Politeknik Negeri Madiun sebagai organisasi yang mengembangkan intelektualitas, jasmani, dan rohani serta menumbuhkan kesadaran terhadap alam, sehingga menjadi panutan bagi Pemuda Indonesia pada umumnya dan Politeknik Negeri Madiun khususnya.
+                    </p>
+                </article>
+            </div>
 
-@media (max-width: 400px) {
-    .container {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    
-    .hero-section .lead {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-    }
-    
-    /* Stack nilai-nilai cards vertically on very small screens */
-    .col-6 {
-        flex: 0 0 100% !important;
-        max-width: 100% !important;
-    }
-}
-</style>
+            <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <article class="surface-card">
+                    <span class="icon-badge mb-4"><i class="bi bi-bullseye"></i></span>
+                    <h3 class="h2 mb-3" style="color: var(--primary-color);">Misi</h3>
+                    <div class="d-grid gap-3">
+                        <div class="d-flex align-items-start gap-3">
+                            <i class="bi bi-check-circle-fill mt-1" style="color: var(--secondary-color);"></i>
+                            <span class="section-lead">Menjalankan organisasi dengan prinsip tata kelola yang baik dan mengikat.</span>
+                        </div>
+                        <div class="d-flex align-items-start gap-3">
+                            <i class="bi bi-check-circle-fill mt-1" style="color: var(--secondary-color);"></i>
+                            <span class="section-lead">Meningkatkan kemampuan teknis, fisik, dan kesadaran terhadap lingkungan hidup.</span>
+                        </div>
+                        <div class="d-flex align-items-start gap-3">
+                            <i class="bi bi-check-circle-fill mt-1" style="color: var(--secondary-color);"></i>
+                            <span class="section-lead">Membangun hubungan yang baik dan saling menguntungkan dengan pihak internal maupun eksternal.</span>
+                        </div>
+                        <div class="d-flex align-items-start gap-3">
+                            <i class="bi bi-check-circle-fill mt-1" style="color: var(--secondary-color);"></i>
+                            <span class="section-lead">Mengembangkan kegiatan yang mendukung kemajuan ilmu pengetahuan.</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
 
+<section class="section-shell">
+    <div class="container">
+        <div class="section-intro" data-aos="fade-up">
+            <span class="section-kicker">
+                <i class="bi bi-diagram-3-fill"></i>
+                Bidang Minat
+            </span>
+            <h2 class="section-heading">Dua divisi, dua karakter latihan</h2>
+            <p class="section-lead mx-auto">
+                Setiap divisi dirancang untuk membangun kemampuan teknis yang berbeda, tetapi tetap berpijak pada keselamatan, disiplin, dan solidaritas.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-12 col-lg-6" data-aos="fade-up">
+                <article class="surface-card">
+                    <span class="icon-badge mb-4"><i class="bi bi-tree-fill"></i></span>
+                    <h3 class="h2 mb-3" style="color: var(--primary-color);">Gunung Hutan</h3>
+                    <p class="section-lead mb-4">
+                        Fokus pada pendakian, navigasi darat, survival, dan pemahaman ekosistem alam bebas. Divisi ini menuntut kesiapan fisik dan pengambilan keputusan yang tenang di lapangan.
+                    </p>
+                    <div class="chip-list">
+                        <span class="chip"><i class="bi bi-mountain"></i>Pendakian</span>
+                        <span class="chip"><i class="bi bi-compass"></i>Navigasi</span>
+                        <span class="chip"><i class="bi bi-flower1"></i>Konservasi</span>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <article class="surface-card">
+                    <span class="icon-badge mb-4"><i class="bi bi-triangle-fill"></i></span>
+                    <h3 class="h2 mb-3" style="color: var(--primary-color);">Rock Climbing</h3>
+                    <p class="section-lead mb-4">
+                        Berfokus pada teknik panjat tebing, penggunaan alat, manajemen risiko, dan kesiapan anggota dalam aktivitas vertikal yang membutuhkan presisi serta kepatuhan prosedur keselamatan.
+                    </p>
+                    <div class="chip-list">
+                        <span class="chip"><i class="bi bi-shield-check"></i>Keselamatan</span>
+                        <span class="chip"><i class="bi bi-gear"></i>Peralatan</span>
+                        <span class="chip"><i class="bi bi-trophy"></i>Kompetisi</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-shell section-shell--soft">
+    <div class="container">
+        <div class="section-intro" data-aos="fade-up">
+            <span class="section-kicker">
+                <i class="bi bi-heart-fill"></i>
+                Nilai Organisasi
+            </span>
+            <h2 class="section-heading">Yang dibentuk bukan hanya kemampuan teknis</h2>
+            <p class="section-lead mx-auto">
+                Nilai-nilai ini menjadi standar perilaku yang menjaga organisasi tetap sehat dan relevan.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-12 col-sm-6 col-xl-3" data-aos="fade-up">
+                <article class="surface-card surface-card--compact">
+                    <span class="icon-badge mb-3"><i class="bi bi-shield-check"></i></span>
+                    <h3 class="h4 mb-2" style="color: var(--primary-color);">Integritas</h3>
+                    <p class="section-lead mb-0">Jujur, konsisten, dan bertanggung jawab dalam tindakan maupun keputusan.</p>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3" data-aos="fade-up" data-aos-delay="100">
+                <article class="surface-card surface-card--compact">
+                    <span class="icon-badge mb-3"><i class="bi bi-trophy"></i></span>
+                    <h3 class="h4 mb-2" style="color: var(--primary-color);">Prestasi</h3>
+                    <p class="section-lead mb-0">Mendorong anggota memberi performa terbaik dalam latihan dan kegiatan.</p>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3" data-aos="fade-up" data-aos-delay="200">
+                <article class="surface-card surface-card--compact">
+                    <span class="icon-badge mb-3"><i class="bi bi-book"></i></span>
+                    <h3 class="h4 mb-2" style="color: var(--primary-color);">Pembelajaran</h3>
+                    <p class="section-lead mb-0">Belajar terus, berbagi pengalaman, dan memperkuat budaya evaluasi.</p>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3" data-aos="fade-up" data-aos-delay="300">
+                <article class="surface-card surface-card--compact">
+                    <span class="icon-badge mb-3"><i class="bi bi-lightning-charge"></i></span>
+                    <h3 class="h4 mb-2" style="color: var(--primary-color);">Ketangguhan</h3>
+                    <p class="section-lead mb-0">Siap menghadapi tantangan lapangan dengan sikap tabah, tangguh, dan terampil.</p>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-shell">
+    <div class="container">
+        <div class="surface-card text-center" data-aos="fade-up">
+            <span class="icon-badge mb-4"><i class="bi bi-quote"></i></span>
+            <h2 class="section-heading mb-3">Semangat yang terus dijaga</h2>
+            <p class="section-lead mx-auto mb-0" style="max-width: 860px;">
+                "Mahasiswa Pecinta Alam tidak akan memelonco Anda, melainkan akan membimbing Anda. Alam lah yang akan mendidik Anda setiap saat, dalam setiap kondisi, setiap medan, dan setiap situasi. Bila semua itu mampu Anda hadapi, menjelmalah Anda menjadi seorang putra putri alam yang <strong>TABAH, TANGGUH, TERAMPIL</strong>."
+            </p>
+        </div>
+    </div>
+</section>
 @endsection

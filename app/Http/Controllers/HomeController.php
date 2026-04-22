@@ -1,12 +1,12 @@
 <?php
+
 // File: app/Http/Controllers/HomeController.php
 
 namespace App\Http\Controllers;
 
+use App\Models\Artikel;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
-use App\Models\Artikel;
-use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -15,19 +15,19 @@ class HomeController extends Controller
 
         // Get latest articles untuk section berita
         $artikels = Artikel::published()
-        ->with('user')
-        ->latest()
-        ->limit(6) // Tampilkan 6 artikel terbaru
-        ->get();
+            ->with('user')
+            ->latest()
+            ->limit(6) // Tampilkan 6 artikel terbaru
+            ->get();
 
         // Get statistics (jika diperlukan)
         $stats = [
-        'total_artikel' => Artikel::published()->count(),
-        'total_pendaftar' => class_exists('App\Models\Pendaftar') ? \App\Models\Pendaftaran::count() : 0,
-        // Tambahkan statistik lain sesuai kebutuhan
+            'total_artikel' => Artikel::published()->count(),
+            'total_pendaftar' => class_exists('App\Models\Pendaftaran') ? \App\Models\Pendaftaran::count() : 0,
+            // Tambahkan statistik lain sesuai kebutuhan
         ];
 
-        return view('home', compact('artikels', 'stats'));    
+        return view('home', compact('artikels', 'stats'));
     }
 
     public function about()
@@ -35,9 +35,22 @@ class HomeController extends Controller
         return view('about');
     }
 
-    public function activities()
+    public function activities(Request $request)
     {
-        return view('activities');
+        $search = $request->get('search');
+        $query = \App\Models\Kegiatan::orderBy('tanggal_pelaksanaan', 'desc');
+
+        if ($search) {
+            $query->where(function ($q) use ($search) {
+                $q->where('judul_kegiatan', 'like', "%{$search}%")
+                    ->orWhere('tempat', 'like', "%{$search}%")
+                    ->orWhere('materi', 'like', "%{$search}%")
+                    ->orWhere('tahun', 'like', "%{$search}%");
+            });
+        }
+
+        $kegiatans = $query->get();
+        return view('activities', compact('kegiatans', 'search'));
     }
 
     public function join()
@@ -77,19 +90,19 @@ class HomeController extends Controller
         if ($request->hasFile('foto_diri')) {
             // Buat folder jika belum ada
             $uploadPath = public_path('uploads/pendaftaran');
-            if (!file_exists($uploadPath)) {
+            if (! file_exists($uploadPath)) {
                 mkdir($uploadPath, 0755, true);
             }
 
             // Generate nama file unik
             $file = $request->file('foto_diri');
-            $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            
+            $fileName = time().'_'.uniqid().'.'.$file->getClientOriginalExtension();
+
             // Pindahkan file ke folder public
             $file->move($uploadPath, $fileName);
-            
+
             // Simpan path relatif ke database
-            $validated['foto_diri'] = 'uploads/pendaftaran/' . $fileName;
+            $validated['foto_diri'] = 'uploads/pendaftaran/'.$fileName;
         }
 
         // Simpan ke database
@@ -97,17 +110,37 @@ class HomeController extends Controller
 
         // Redirect ke halaman sukses
         return redirect()->route('join.success', ['id' => $pendaftaran->id])
-                        ->with('success', 'Pendaftaran berhasil dikirim!');
+            ->with('success', 'Pendaftaran berhasil dikirim!');
     }
 
     public function joinSuccess($id)
     {
         $pendaftaran = Pendaftaran::findOrFail($id);
+
         return view('join-success', compact('pendaftaran'));
     }
 
     public function contact()
     {
         return view('contact');
+    }
+
+    public function sendContact(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ]);
+
+        \App\Models\Pesan::create([
+            'nama' => $validated['name'],
+            'email' => $validated['email'],
+            'subjek' => $validated['subject'],
+            'pesan' => $validated['message'],
+        ]);
+
+        return redirect()->back()->with('success_contact', 'Pesan Anda berhasil dikirim! Tim kami akan segera memprosesnya.');
     }
 }

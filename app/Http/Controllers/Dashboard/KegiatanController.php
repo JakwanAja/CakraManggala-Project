@@ -24,10 +24,10 @@ class KegiatanController extends Controller
 
         // Filter pencarian
         if ($search) {
-            $query->where(function($q) use ($search) {
+            $query->where(function ($q) use ($search) {
                 $q->where('judul_kegiatan', 'like', "%{$search}%")
-                  ->orWhere('tempat', 'like', "%{$search}%")
-                  ->orWhere('kapel_pj', 'like', "%{$search}%");
+                    ->orWhere('tempat', 'like', "%{$search}%")
+                    ->orWhere('kapel_pj', 'like', "%{$search}%");
             });
         }
 
@@ -49,8 +49,8 @@ class KegiatanController extends Controller
             'internal' => Kegiatan::where('sifat', 'internal')->count(),
             'eksternal' => Kegiatan::where('sifat', 'eksternal')->count(),
             'bulan_ini' => Kegiatan::whereMonth('tanggal_pelaksanaan', now()->month)
-                                  ->whereYear('tanggal_pelaksanaan', now()->year)
-                                  ->count(),
+                ->whereYear('tanggal_pelaksanaan', now()->year)
+                ->count(),
         ];
 
         // Tahun yang tersedia untuk filter
@@ -59,11 +59,11 @@ class KegiatanController extends Controller
             ->pluck('tahun');
 
         return view('dashboard.kegiatan.index', compact(
-            'kegiatans', 
-            'stats', 
-            'search', 
-            'tahun', 
-            'sifat', 
+            'kegiatans',
+            'stats',
+            'search',
+            'tahun',
+            'sifat',
             'perPage',
             'availableYears'
         ));
@@ -83,7 +83,7 @@ class KegiatanController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'tahun' => 'required|integer|min:2020|max:' . (date('Y') + 5),
+            'tahun' => 'required|integer|min:2020|max:'.(date('Y') + 5),
             'judul_kegiatan' => 'required|string|max:255',
             'tanggal_pelaksanaan' => 'required|date',
             'materi' => 'nullable|string',
@@ -94,7 +94,7 @@ class KegiatanController extends Controller
             'tahun.required' => 'Tahun harus diisi',
             'tahun.integer' => 'Tahun harus berupa angka',
             'tahun.min' => 'Tahun minimal 2020',
-            'tahun.max' => 'Tahun maksimal ' . (date('Y') + 5),
+            'tahun.max' => 'Tahun maksimal '.(date('Y') + 5),
             'judul_kegiatan.required' => 'Judul kegiatan harus diisi',
             'judul_kegiatan.max' => 'Judul kegiatan maksimal 255 karakter',
             'tanggal_pelaksanaan.required' => 'Tanggal pelaksanaan harus diisi',
@@ -137,7 +137,7 @@ class KegiatanController extends Controller
     public function update(Request $request, Kegiatan $kegiatan)
     {
         $validated = $request->validate([
-            'tahun' => 'required|integer|min:2020|max:' . (date('Y') + 5),
+            'tahun' => 'required|integer|min:2020|max:'.(date('Y') + 5),
             'judul_kegiatan' => 'required|string|max:255',
             'tanggal_pelaksanaan' => 'required|date',
             'materi' => 'nullable|string',
@@ -148,7 +148,7 @@ class KegiatanController extends Controller
             'tahun.required' => 'Tahun harus diisi',
             'tahun.integer' => 'Tahun harus berupa angka',
             'tahun.min' => 'Tahun minimal 2020',
-            'tahun.max' => 'Tahun maksimal ' . (date('Y') + 5),
+            'tahun.max' => 'Tahun maksimal '.(date('Y') + 5),
             'judul_kegiatan.required' => 'Judul kegiatan harus diisi',
             'judul_kegiatan.max' => 'Judul kegiatan maksimal 255 karakter',
             'tanggal_pelaksanaan.required' => 'Tanggal pelaksanaan harus diisi',

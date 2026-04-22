@@ -1,4 +1,5 @@
 <?php
+
 // File: app/Http/Controllers/AuthController.php
 
 namespace App\Http\Controllers;
@@ -24,17 +25,31 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-        // Validate the login request
-        $validator = Validator::make($request->all(), [
+        $recaptchaEnabled = config('services.recaptcha.enabled')
+            && config('services.recaptcha.site_key')
+            && config('services.recaptcha.secret_key');
+
+        $rules = [
             'email' => ['required', 'email'],
             'password' => ['required', 'string'],
-            'g-recaptcha-response' => ['required'], // reCAPTCHA sudah divalidasi di middleware
-        ], [
+        ];
+
+        if ($recaptchaEnabled) {
+            $rules['g-recaptcha-response'] = ['required'];
+        }
+
+        $messages = [
             'email.required' => 'Email wajib diisi.',
             'email.email' => 'Format email tidak valid.',
             'password.required' => 'Password wajib diisi.',
-            'g-recaptcha-response.required' => 'Mohon selesaikan verifikasi reCAPTCHA.',
-        ]);
+        ];
+
+        if ($recaptchaEnabled) {
+            $messages['g-recaptcha-response.required'] = 'Mohon selesaikan verifikasi reCAPTCHA.';
+        }
+
+        // Validate the login request
+        $validator = Validator::make($request->all(), $rules, $messages);
 
         if ($validator->fails()) {
             return back()
@@ -49,7 +64,7 @@ class AuthController extends Controller
         // Attempt to log the user in
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
-            
+
             // Log successful login
             Log::info('User logged in successfully', [
                 'email' => $request->email,

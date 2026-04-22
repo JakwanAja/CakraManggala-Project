@@ -5,24 +5,10 @@
 @section('page-title', 'Detail Pendaftar')
 
 @section('content')
-<div class="page-header">
-    <div class="d-flex justify-content-between align-items-center">
-        <div>
-            <h1 class="page-title">Detail Pendaftar</h1>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard.pendaftar') }}">Data Pendaftar</a></li>
-                    <li class="breadcrumb-item active">Detail</li>
-                </ol>
-            </nav>
-        </div>
-        <div>
-            <a href="{{ route('dashboard.pendaftar') }}" class="btn btn-outline-secondary">
-                <i class="bi bi-arrow-left"></i> Kembali
-            </a>
-        </div>
-    </div>
+<div class="mb-4">
+    <a href="{{ route('dashboard.pendaftar') }}" class="btn btn-outline-secondary btn-sm">
+        <i class="bi bi-arrow-left"></i> Kembali
+    </a>
 </div>
 
 <div class="row">

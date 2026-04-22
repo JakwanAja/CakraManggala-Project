@@ -5,24 +5,10 @@
 @section('page-title', 'Buat Artikel Baru')
 
 @section('content')
-<div class="page-header">
-    <div class="d-flex justify-content-between align-items-center">
-        <div>
-            <h1 class="page-title">Buat Artikel Baru</h1>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard.artikel.index') }}">Artikel</a></li>
-                    <li class="breadcrumb-item active">Buat Baru</li>
-                </ol>
-            </nav>
-        </div>
-        <div>
-            <a href="{{ route('dashboard.artikel.index') }}" class="btn btn-outline-secondary">
-                <i class="bi bi-arrow-left"></i> Kembali
-            </a>
-        </div>
-    </div>
+<div class="mb-4">
+    <a href="{{ route('dashboard.artikel.index') }}" class="btn btn-outline-secondary btn-sm">
+        <i class="bi bi-arrow-left"></i> Kembali
+    </a>
 </div>
 
 <div class="card">

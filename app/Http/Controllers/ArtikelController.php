@@ -1,4 +1,5 @@
 <?php
+
 // File: app/Http/Controllers/ArtikelController.php (untuk frontend)
 
 namespace App\Http\Controllers;
@@ -18,10 +19,10 @@ class ArtikelController extends Controller
             ->latest();
 
         if ($search) {
-            $query->where(function($q) use ($search) {
+            $query->where(function ($q) use ($search) {
                 $q->where('judul', 'like', "%{$search}%")
-                  ->orWhere('konten', 'like', "%{$search}%")
-                  ->orWhere('excerpt', 'like', "%{$search}%");
+                    ->orWhere('konten', 'like', "%{$search}%")
+                    ->orWhere('excerpt', 'like', "%{$search}%");
             });
         }
 

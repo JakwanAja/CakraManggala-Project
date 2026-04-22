@@ -1,4 +1,5 @@
 <?php
+
 // File: bootstrap/app.php
 
 use Illuminate\Foundation\Application;

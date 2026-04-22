@@ -1,4 +1,5 @@
 <?php
+
 // File: database/migrations/2025_01_XX_XXXXXX_create_artikels_table.php
 
 use Illuminate\Database\Migrations\Migration;
@@ -20,7 +21,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Penulis
             $table->integer('views')->default(0);
             $table->timestamps();
-            
+
             $table->index(['status', 'created_at']);
             $table->index('slug');
         });

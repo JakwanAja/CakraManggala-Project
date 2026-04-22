@@ -2,385 +2,305 @@
 
 @section('title', 'Struktur Kepengurusan - UKM Cakra Manggala')
 
-@section('content')
+@push('styles')
+<style>
+    .org-period-card {
+        padding: 1.2rem 1.3rem;
+        border: 1px solid rgba(18, 33, 25, 0.08);
+        background: rgba(255, 255, 255, 0.75);
+        box-shadow: var(--shadow-soft);
+        text-align: center;
+    }
 
+    .org-grid {
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .org-member-card {
+        height: 100%;
+        text-align: center;
+    }
+
+    .org-member-card__avatar-wrap {
+        position: relative;
+        display: inline-flex;
+        margin-bottom: 1rem;
+    }
+
+    .org-member-card__avatar {
+        width: 112px;
+        height: 112px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid rgba(26, 67, 49, 0.08);
+        background: #e2ddd4;
+        box-shadow: 0 18px 34px rgba(7, 17, 12, 0.1);
+    }
+
+    .org-member-card--leader .org-member-card__avatar {
+        width: 136px;
+        height: 136px;
+    }
+
+    .org-member-card__badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0.15rem;
+        bottom: 0.15rem;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #f2c57b 0%, #de9541 100%);
+        color: #15120d;
+        box-shadow: 0 10px 20px rgba(222, 149, 65, 0.24);
+    }
+
+    .org-member-card__name {
+        margin-bottom: 0.45rem;
+        color: var(--primary-color);
+        font-size: 1.1rem;
+        line-height: 1.35;
+    }
+
+    .org-member-card__role {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.48rem 0.85rem;
+        margin-bottom: 0.7rem;
+        border: 1px solid rgba(26, 67, 49, 0.12);
+        background: rgba(26, 67, 49, 0.06);
+        color: var(--primary-color);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .org-member-card__study {
+        margin: 0;
+        color: var(--muted-color);
+        line-height: 1.7;
+    }
+
+    .org-member-card__quote {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-soft);
+        color: var(--muted-color);
+        font-style: italic;
+        line-height: 1.7;
+    }
+
+    @media (max-width: 575px) {
+        .org-member-card__avatar {
+            width: 96px;
+            height: 96px;
+        }
+
+        .org-member-card--leader .org-member-card__avatar {
+            width: 116px;
+            height: 116px;
+        }
+    }
+</style>
+@endpush
+
+@section('content')
 @php
-    $bgImage = asset('image/fotobersejarah2.jpg');
+    $heroImage = asset('image/fotobersejarah2.jpg');
+    $emptyPhoto = asset('image/profilkosong.png');
+
+    $leader = [
+        'name' => 'Satria Dwi Saputra',
+        'role' => 'Ketua Umum',
+        'study' => "Teknik Listrik '23",
+        'quote' => 'Tidak perlu kata-kata yang penting bukti nyata',
+    ];
+
+    $coreMembers = [
+        ['name' => 'Naufal Rohmanul Muhaimin', 'role' => 'Sekretaris', 'study' => "Teknik Komputer Kontrol '23"],
+        ['name' => 'Alvina Qorik Cahyani', 'role' => 'Bendahara', 'study' => "Akuntansi '23"],
+        ['name' => 'Albert Setya Candra Wijaya', 'role' => 'Kepala Bidang Logistik', 'study' => "Teknik Rekayasa Otomotif '22"],
+    ];
+
+    $divisionHeads = [
+        ['name' => 'Muhammad Dzakwan Alfaris', 'role' => 'Kepala Bidang Publikasi dan Dokumentasi', 'study' => "Teknologi Rekayasa Perangkat Lunak '23"],
+        ['name' => 'Maulaya Ilyasa Jayamagusta', 'role' => 'Kepala Bidang Kaderisasi, Penelitian dan PSDM', 'study' => "Perkeretaapian '23"],
+        ['name' => 'Erzal Abilla Saputra', 'role' => 'Kepala Bidang Lingkungan dan Pengabdian Masyarakat', 'study' => "Teknologi Informasi '23"],
+    ];
+
+    $divisionMembers = [
+        ['name' => 'Rindu Resty Ananda Faradilla', 'role' => 'Anggota Bidang Lingkungan dan Pengabdian Masyarakat', 'study' => "Akuntansi Sektor Publik '22"],
+    ];
 @endphp
 
-<!-- Hero Section -->
-<section class="hero-section" style="height: 50vh; background: linear-gradient(rgba(46, 125, 50, 0.8), rgba(27, 94, 32, 0.9)), url('{{ $bgImage }}'); background-size: cover; background-position: center;">
+<section class="page-hero">
+    <div class="page-hero__media" aria-hidden="true">
+        <div class="page-hero__fallback" style="background-image: url('{{ $heroImage }}'); position: absolute; inset: -4%; background-size: cover; background-position: center; filter: saturate(0.8) contrast(1.1); transform: scale(1.05);"></div>
+        <div class="page-hero__overlay"></div>
+    </div>
     <div class="container">
-        <div class="row align-items-center h-100">
-            <div class="col-12 text-center text-white">
-                <h1 class="display-5 fw-bold mb-3" data-aos="fade-up">Struktur Kepengurusan</h1>
-                <div class="mt-3" data-aos="fade-up" data-aos-delay="300">
-                    <span class="badge bg-light text-success px-3 py-2" style="font-size: 0.9rem;">
-                        Tabah • Tangguh • Terampil
-                    </span>
-                </div>
-            </div>
+        <div class="page-hero__inner" data-aos="fade-up">
+            <span class="page-hero__eyebrow">
+                <i class="bi bi-people"></i>
+                Keluarga Besar
+            </span>
+            <h1 class="page-hero__title">Struktur<br><span>Kepengurusan</span></h1>
+            <p class="page-hero__lead">
+                Sinergi antar bidang dan tanggung jawab kolektif yang menjaga keberlangsungan roda organisasi Cakra Manggala.
+            </p>
         </div>
     </div>
 </section>
 
-<!-- Period Info -->
-<section class="py-3 py-md-4 bg-light">
+<section class="section-shell">
     <div class="container">
-        <div class="text-center" data-aos="fade-up">
-            <h3 class="mb-2" style="color: var(--primary-color); font-size: 1.3rem;">
-                <i class="bi bi-calendar-check me-2"></i>Periode 2024-2025
-            </h3>
-            <p class="text-muted mb-0" style="font-size: 0.9rem;">
-                Pengurus aktif unit kegiatan mahasiswa pecinta alam Cakra Manggala
+        <div class="org-period-card" data-aos="fade-up">
+            <span class="section-kicker mb-3">
+                <i class="bi bi-calendar-check-fill"></i>
+                Periode Aktif
+            </span>
+            <h2 class="section-heading mb-2">2024-2025</h2>
+            <p class="section-lead mx-auto mb-0">
+                Pengurus aktif Unit Kegiatan Mahasiswa Pecinta Alam Cakra Manggala untuk satu periode kepengurusan berjalan.
+            </p>
         </div>
     </div>
 </section>
 
-<!-- Ketua Umum -->
-<section class="py-4 py-md-5">
+<section class="section-shell section-shell--soft">
     <div class="container">
-        <div class="text-center mb-4 mb-md-5" data-aos="fade-up">
-            <h2 style="color: var(--primary-color);">
-                <i class="bi bi-award me-2"></i>Ketua Umum
-            </h2>
-        </div>
-        
-        <div class="row justify-content-center">
-            <div class="col-12 col-sm-8 col-md-6 col-lg-4" data-aos="fade-up">
-                <div class="card border-0 shadow-sm text-center h-100">
-                    <div class="card-body p-3 p-md-4">
-                        <div class="position-relative d-inline-block mb-3">
-                            <img src={{ asset('image/profilkosong.png') }}
-                                 class="rounded-circle shadow" width="120" height="120" style="object-fit: cover;" alt="Ketua">
-                            <div class="position-absolute bottom-0 end-0 bg-success rounded-circle d-flex align-items-center justify-content-center" 
-                                 style="width: 35px; height: 35px;">
-                                <i class="bi bi-star-fill text-white" style="font-size: 1rem;"></i>
-                            </div>
-                        </div>
-                        <h5 class="mb-2" style="color: var(--primary-color);">Satria Dwi Saputra</h5>
-                        <div class="badge bg-success text-white mb-2 px-3 py-2">Ketua Umum</div>
-                        <p class="text-muted small mb-3">Teknik Listrik '23</p>
-                        <div class="border-top pt-3">
-                            <p class="small fst-italic text-muted mb-0" style="font-size: 0.85rem; line-height: 1.4;">
-                                "Tidak perlu kata-kata yang penting bukti nyata"
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Pengurus Inti -->
-<section class="py-4 py-md-5 bg-light">
-    <div class="container">
-        <div class="text-center mb-4 mb-md-5" data-aos="fade-up">
-            <h2 style="color: var(--primary-color);">
-                <i class="bi bi-people me-2"></i>Pengurus Inti
-            </h2>
-        </div>
-        
-        <div class="row g-3 g-md-4">
-            <!-- Sekretaris -->
-            <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
-                <div class="card border-0 shadow-sm text-center h-100">
-                    <div class="card-body p-3 p-md-4">
-                        <img src={{ asset('image/profilkosong.png') }} 
-                             class="rounded-circle shadow-sm mb-3" width="100" height="100" style="object-fit: cover;" alt="Sekretaris">
-                        <h6 class="mb-2" style="color: var(--primary-color); font-size: 1rem;">Naufal Rohmanul Muhaimin</h6>
-                        <div class="badge bg-light text-success mb-2 px-2 py-1" style="font-size: 0.8rem;">Sekretaris</div>
-                        <p class="text-muted small mb-0" style="font-size: 0.85rem;">Teknik Komputer Kontrol '23</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bendahara -->
-            <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="card border-0 shadow-sm text-center h-100">
-                    <div class="card-body p-3 p-md-4">
-                        <img src={{ asset('image/profilkosong.png') }}
-                             class="rounded-circle shadow-sm mb-3" width="100" height="100" style="object-fit: cover;" alt="Bendahara">
-                        <h6 class="mb-2" style="color: var(--primary-color); font-size: 1rem;">Alvina Qorik Cahyani</h6>
-                        <div class="badge bg-light text-success mb-2 px-2 py-1" style="font-size: 0.8rem;">Bendahara</div>
-                        <p class="text-muted small mb-0" style="font-size: 0.85rem;">Akuntansi '23</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Kepala Bidang Logistik -->
-            <div class="col-12 col-md-12 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="card border-0 shadow-sm text-center h-100">
-                    <div class="card-body p-3 p-md-4">
-                        <img src={{ asset('image/profilkosong.png') }}
-                             class="rounded-circle shadow-sm mb-3" width="100" height="100" style="object-fit: cover;" alt="Logistik">
-                        <h6 class="mb-2" style="color: var(--primary-color); font-size: 1rem;">Albert Setya Candra Wijaya</h6>
-                        <div class="badge bg-light text-success mb-2 px-2 py-1" style="font-size: 0.8rem;">Kepala Bidang Logistik</div>
-                        <p class="text-muted small mb-0" style="font-size: 0.85rem;">Teknik Rekayasa Otomotif '22</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Kepala Bidang -->
-<section class="py-4 py-md-5">
-    <div class="container">
-        <div class="text-center mb-4 mb-md-5" data-aos="fade-up">
-            <h2 style="color: var(--primary-color);">
-                <i class="bi bi-diagram-3 me-2"></i>Kepala Bidang
-            </h2>
-        </div>
-
-        <div class="row g-3 g-md-4">
-            <!-- Kepala Bidang Publikasi dan Dokumentasi -->
-            <div class="col-12 col-lg-6" data-aos="fade-up">
-                <div class="card border-0 shadow-sm text-center h-100">
-                    <div class="card-body p-3 p-md-4">
-                        <img src={{ asset('image/profilkosong.png') }}
-                             class="rounded-circle shadow-sm mb-3" width="100" height="100" style="object-fit: cover;" alt="Publikasi">
-                        <h6 class="mb-2" style="color: var(--primary-color); font-size: 1rem;">Muhammad Dzakwan Alfaris</h6>
-                        <div class="badge bg-light text-success mb-2 px-2 py-1" style="font-size: 0.8rem;">Kepala Bidang Publikasi dan Dokumentasi</div>
-                        <p class="text-muted small mb-0" style="font-size: 0.85rem;">Teknologi Rekayasa Perangkat Lunak '23</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Kepala Bidang Kaderisasi, Penelitian dan PSDM -->
-            <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="card border-0 shadow-sm text-center h-100">
-                    <div class="card-body p-3 p-md-4">
-                        <img src={{ asset('image/profilkosong.png') }}
-                             class="rounded-circle shadow-sm mb-3" width="100" height="100" style="object-fit: cover;" alt="Kaderisasi">
-                        <h6 class="mb-2" style="color: var(--primary-color); font-size: 1rem;">Maulaya Ilyasa Jayamagusta</h6>
-                        <div class="badge bg-light text-success mb-2 px-2 py-1" style="font-size: 0.8rem;">Kepala Bidang Kaderisasi, Penelitian dan PSDM</div>
-                        <p class="text-muted small mb-0" style="font-size: 0.85rem;">Perkeretaapian '23</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Kepala Bidang Lingkungan dan Pengabdian Masyarakat -->
-            <div class="col-12" data-aos="fade-up" data-aos-delay="200">
-                <div class="card border-0 shadow-sm text-center">
-                    <div class="card-body p-3 p-md-4">
-                        <img src={{ asset('image/profilkosong.png') }} 
-                             class="rounded-circle shadow-sm mb-3" width="100" height="100" style="object-fit: cover;" alt="Lingkungan">
-                        <h6 class="mb-2" style="color: var(--primary-color); font-size: 1rem;">Erzal Abilla Saputra</h6>
-                        <div class="badge bg-light text-success mb-2 px-2 py-1" style="font-size: 0.8rem;">Kepala Bidang Lingkungan dan Pengabdian Masyarakat</div>
-                        <p class="text-muted small mb-0" style="font-size: 0.85rem;">Teknologi Informasi '23</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Anggota Bidang -->
-<section class="py-4 py-md-5 bg-light">
-    <div class="container">
-        <div class="text-center mb-4 mb-md-5" data-aos="fade-up">
-            <h2 style="color: var(--primary-color);">
-                <i class="bi bi-person-check me-2"></i>Anggota Bidang
-            </h2>
+        <div class="section-intro" data-aos="fade-up">
+            <span class="section-kicker">
+                <i class="bi bi-award-fill"></i>
+                Pimpinan Organisasi
+            </span>
+            <h2 class="section-heading">Ketua umum</h2>
+            <p class="section-lead mx-auto">
+                Peran sentral yang menjaga arah organisasi, ritme kerja, dan semangat kepengurusan tetap satu jalur.
+            </p>
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-12 col-sm-8 col-md-6 col-lg-4" data-aos="fade-up">
-                <div class="card border-0 shadow-sm text-center h-100">
-                    <div class="card-body p-3 p-md-4">
-                        <img src={{ asset('image/profilkosong.png') }}
-                             class="rounded-circle shadow-sm mb-3" width="100" height="100" style="object-fit: cover;" alt="Anggota">
-                        <h6 class="mb-2" style="color: var(--primary-color); font-size: 1rem;">Rindu Resty Ananda Faradilla</h6>
-                        <div class="badge bg-light text-success mb-2 px-2 py-1" style="font-size: 0.8rem;">Anggota Bidang Lingkungan dan Pengabdian Masyarakat</div>
-                        <p class="text-muted small mb-0" style="font-size: 0.85rem;">Akuntansi Sektor Publik '22</p>
+            <div class="col-12 col-md-8 col-lg-5" data-aos="fade-up">
+                <article class="surface-card org-member-card org-member-card--leader">
+                    <div class="org-member-card__avatar-wrap">
+                        <img src="{{ $emptyPhoto }}" alt="{{ $leader['name'] }}" class="org-member-card__avatar">
+                        <span class="org-member-card__badge"><i class="bi bi-star-fill"></i></span>
                     </div>
-                </div>
+                    <h3 class="org-member-card__name">{{ $leader['name'] }}</h3>
+                    <div class="org-member-card__role">{{ $leader['role'] }}</div>
+                    <p class="org-member-card__study">{{ $leader['study'] }}</p>
+                    <p class="org-member-card__quote">"{{ $leader['quote'] }}"</p>
+                </article>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Team Spirit Section -->
-<section class="py-4 py-md-5">
+<section class="section-shell">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-10">
-                <div class="text-center px-3" data-aos="fade-up">
-                    <div class="mb-3 mb-md-4">
-                        <i class="bi bi-people-fill" style="color: var(--primary-color); font-size: 2.5rem;"></i>
-                    </div>
-                    <blockquote class="blockquote">
-                        <p class="fs-5 fs-md-4 fw-light lh-lg mb-3 mb-md-4" style="color: #2c3e50; font-style: italic; font-size: 1.1rem !important; line-height: 1.6;">
-                            "Bersama-sama kita membangun organisasi yang kuat, berkarakter, dan bermanfaat bagi semua. Setiap pengurus adalah <strong>PEMIMPIN</strong> yang bertanggung jawab atas kemajuan UKM Pecinta Alam Cakra Manggala."
-                        </p>
-                    </blockquote>
-                    <div class="mt-3 mt-md-4">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <div class="bg-success" style="width: 30px; height: 2px;"></div>
-                            <i class="bi bi-award mx-3" style="color: var(--primary-color); font-size: 1.5rem;"></i>
-                            <div class="bg-success" style="width: 30px; height: 2px;"></div>
+        <div class="section-intro" data-aos="fade-up">
+            <span class="section-kicker">
+                <i class="bi bi-diagram-2-fill"></i>
+                Pengurus Inti
+            </span>
+            <h2 class="section-heading">Peran yang menjaga operasional tetap jalan</h2>
+            <p class="section-lead mx-auto">
+                Tim inti menjadi penghubung antara arah organisasi, administrasi, logistik, dan kebutuhan pelaksanaan kegiatan.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            @foreach($coreMembers as $member)
+                <div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="{{ ($loop->index % 3) * 100 }}">
+                    <article class="surface-card org-member-card">
+                        <div class="org-member-card__avatar-wrap">
+                            <img src="{{ $emptyPhoto }}" alt="{{ $member['name'] }}" class="org-member-card__avatar">
                         </div>
-                    </div>
+                        <h3 class="org-member-card__name">{{ $member['name'] }}</h3>
+                        <div class="org-member-card__role">{{ $member['role'] }}</div>
+                        <p class="org-member-card__study">{{ $member['study'] }}</p>
+                    </article>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
 
-<style>
-/* Mobile First Approach - Consistent with about.blade.php */
-@media (max-width: 768px) {
-    .hero-section {
-        height: 40vh !important;
-    }
-    
-    .hero-section h1 {
-        font-size: 2.2rem !important;
-    }
-    
-    .hero-section .lead {
-        font-size: 1rem !important;
-    }
-    
-    .card-body {
-        padding: 1rem !important;
-    }
-    
-    /* Better spacing for mobile */
-    .py-4 {
-        padding-top: 2rem !important;
-        padding-bottom: 2rem !important;
-    }
-    
-    .py-3 {
-        padding-top: 1.5rem !important;
-        padding-bottom: 1.5rem !important;
-    }
-}
+<section class="section-shell section-shell--soft">
+    <div class="container">
+        <div class="section-intro" data-aos="fade-up">
+            <span class="section-kicker">
+                <i class="bi bi-grid-3x3-gap-fill"></i>
+                Kepala Bidang
+            </span>
+            <h2 class="section-heading">Fokus kerja dibagi lebih jelas</h2>
+            <p class="section-lead mx-auto">
+                Setiap bidang memegang area tanggung jawab yang berbeda agar ritme organisasi tetap terarah dan terukur.
+            </p>
+        </div>
 
-@media (max-width: 576px) {
-    .hero-section {
-        height: 35vh !important;
-    }
-    
-    .hero-section h1 {
-        font-size: 1.8rem !important;
-    }
-    
-    .hero-section .lead {
-        font-size: 0.9rem !important;
-    }
-    
-    /* Adjust card spacing */
-    .g-3 > * {
-        padding-right: 0.5rem !important;
-        padding-left: 0.5rem !important;
-        margin-bottom: 1rem !important;
-    }
-    
-    /* Better text sizing for very small screens */
-    .card-body h6 {
-        font-size: 0.95rem !important;
-    }
-    
-    .card-body p,
-    .card-body .badge {
-        font-size: 0.8rem !important;
-    }
-    
-    /* Smaller profile images on mobile */
-    .card img {
-        width: 80px !important;
-        height: 80px !important;
-    }
-    
-    /* Ketua Umum special styling for mobile */
-    .card img[width="120"] {
-        width: 100px !important;
-        height: 100px !important;
-    }
-    
-    /* Quote section adjustments */
-    blockquote p {
-        font-size: 0.95rem !important;
-    }
-    
-    /* Section titles for mobile */
-    section h2 {
-        font-size: 1.4rem !important;
-    }
-    
-    section h3 {
-        font-size: 1.2rem !important;
-    }
-}
+        <div class="row g-4">
+            @foreach($divisionHeads as $member)
+                <div class="col-12 col-lg-6 {{ $loop->last ? 'col-xl-12' : 'col-xl-6' }}" data-aos="fade-up" data-aos-delay="{{ ($loop->index % 3) * 100 }}">
+                    <article class="surface-card org-member-card">
+                        <div class="org-member-card__avatar-wrap">
+                            <img src="{{ $emptyPhoto }}" alt="{{ $member['name'] }}" class="org-member-card__avatar">
+                        </div>
+                        <h3 class="org-member-card__name">{{ $member['name'] }}</h3>
+                        <div class="org-member-card__role">{{ $member['role'] }}</div>
+                        <p class="org-member-card__study">{{ $member['study'] }}</p>
+                    </article>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
 
-@media (max-width: 400px) {
-    .container {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    
-    .hero-section .lead {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-    }
-    
-    /* Smaller images for very small screens */
-    .card img {
-        width: 70px !important;
-        height: 70px !important;
-    }
-    
-    .card img[width="120"] {
-        width: 90px !important;
-        height: 90px !important;
-    }
-    
-    /* Stack cards better on tiny screens */
-    .col-md-6 {
-        margin-bottom: 1rem !important;
-    }
-}
+<section class="section-shell">
+    <div class="container">
+        <div class="section-intro" data-aos="fade-up">
+            <span class="section-kicker">
+                <i class="bi bi-person-check-fill"></i>
+                Anggota Bidang
+            </span>
+            <h2 class="section-heading">Tim pendukung pelaksana</h2>
+            <p class="section-lead mx-auto">
+                Peran pelaksana memperkuat tiap bidang supaya program kerja benar-benar bisa berjalan di lapangan.
+            </p>
+        </div>
 
-/* Card hover effects */
-.card {
-    transition: all 0.3s ease;
-    border-radius: 15px;
-}
+        <div class="row justify-content-center">
+            @foreach($divisionMembers as $member)
+                <div class="col-12 col-md-8 col-lg-5" data-aos="fade-up">
+                    <article class="surface-card org-member-card">
+                        <div class="org-member-card__avatar-wrap">
+                            <img src="{{ $emptyPhoto }}" alt="{{ $member['name'] }}" class="org-member-card__avatar">
+                        </div>
+                        <h3 class="org-member-card__name">{{ $member['name'] }}</h3>
+                        <div class="org-member-card__role">{{ $member['role'] }}</div>
+                        <p class="org-member-card__study">{{ $member['study'] }}</p>
+                    </article>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
 
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12) !important;
-}
-
-.card img {
-    transition: all 0.3s ease;
-}
-
-.card:hover img {
-    transform: scale(1.05);
-}
-
-/* Badge styling consistency */
-.badge {
-    border-radius: 20px;
-    font-weight: 500;
-    font-size: 0.8rem;
-}
-
-/* Period info section styling */
-.bg-light {
-    background-color: #f8f9fa !important;
-}
-
-/* Consistent color variables */
-:root {
-    --primary-color: #28a745;
-    --secondary-color: #6c757d;
-}
-</style>
-
+<section class="section-shell section-shell--soft">
+    <div class="container">
+        <div class="surface-card text-center" data-aos="fade-up">
+            <span class="icon-badge mb-4"><i class="bi bi-people-fill"></i></span>
+            <h2 class="section-heading mb-3">Semangat kerja kolektif</h2>
+            <p class="section-lead mx-auto mb-0" style="max-width: 860px;">
+                "Bersama-sama kita membangun organisasi yang kuat, berkarakter, dan bermanfaat bagi semua. Setiap pengurus adalah <strong>pemimpin</strong> yang bertanggung jawab atas kemajuan UKM Pecinta Alam Cakra Manggala."
+            </p>
+        </div>
+    </div>
+</section>
 @endsection

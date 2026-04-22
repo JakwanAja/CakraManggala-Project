@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Kegiatan extends Model
 {
@@ -17,12 +17,12 @@ class Kegiatan extends Model
         'tempat',
         'kapel_pj',
         'sifat',
-        'user_id'
+        'user_id',
     ];
 
     protected $casts = [
         'tanggal_pelaksanaan' => 'date',
-        'tahun' => 'integer'
+        'tahun' => 'integer',
     ];
 
     /**
